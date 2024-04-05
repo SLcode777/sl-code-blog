@@ -3,8 +3,8 @@ import { siteConfig } from "@/config/site";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "About Me",
-  description: "Information about me",
+  title: "A propos de moi",
+  description: "Pourquoi j'ai voulu me reconvertir dans le développement",
 };
 
 export default async function AboutPage() {
@@ -13,7 +13,7 @@ export default async function AboutPage() {
       <div className="flex flex-col items-start gap-4 md:flex-row md:justify-between md:gap-8">
         <div className="flex-1 space-x-4">
           <h1 className="inline-block font-black text-4xl lg:text-5xl">
-            About Me
+            Qui suis-je ?
           </h1>
         </div>
       </div>
@@ -28,14 +28,63 @@ export default async function AboutPage() {
             {siteConfig.author}
           </h2>
           <p className="text-muted-foreground text-center break-words">
-            Baby developper
+            Baby dev
           </p>
         </div>
         <p className="text-muted-foreground text-lg py-4">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam aut
-          numquam debitis? Dolor voluptas quae nulla asperiores officia! Saepe
-          sequi rerum aut sunt minima dignissimos molestiae dolores quibusdam
-          blanditiis voluptates?
+          Quand j&apos;avais 14 ans, les professeurs m&apos;ont demandé ce que
+          j&apos;aimais dans la vie. Quand j&apos;ai répondu que j&apos;aimais
+          par dessus tout l&apos;informatique et les ordinateurs, on m&apos;a
+          donc logiquement orienté vers.... le secrétariat ! 😅
+          <br /> <br />
+          Après une année d&apos;étude, j&apos;ai rapidement bifurqué vers la
+          comptabilité, qui me proposait un peu plus de challenge,
+          d&apos;énigmes à résoudre, de logique à mettre en action.
+          <br /> <br />
+          Comptable depuis 20 ans, je n&apos;ai jamais laissé tombé cette
+          passion pour l&apos;informatique et les technologies... Jusqu&apos;à
+          présent, je pouvais passer des heures à créer des quasi-applications
+          sur Excel grâce aux connaissances acquises en autodidacte. A
+          configurer des espaces Notion, pour mes besoins personnels, et
+          professionnels.
+          <br /> <br />
+          Et puis, j&apos;ai découvert il y a quelques temps le monde
+          merveilleux du no-code qui m&apos;ouvre de nouvelles portes, celle de
+          la programmation de véritables applications, pour mes propres besoins
+          et surtout pour les besoins des autres. Je me suis formée sur Bubble
+          mais je me suis vite aperçu qu&apos;il m&apos;en fallait plus !
+          J&apos;ai donc choisi d&apos;apprendre Javascript, HTML et CSS dans un
+          premier temps parce que je veux voir et maîtriser ce qu&apos;il y a
+          &quot;sous le capot&quot; pour devenir développeuse ! Le parcours sera
+          beaucoup plus long que si j&apos;avais choisi de rester sur des outils
+          no-code, mais je suis plus motivée que jamais à percer les secrets de
+          ces langages mystérieux qui font ronronner nos applications et sites
+          préférés ^^
+          <br /> <br />
+          Je prépare avec ardeur et passion mon lancement dans ce nouveau monde
+          et je réfléchis, à mes futurs produits, à mon branding, mes
+          stratégies, etc... <br />
+          <br />
+          Je suis persuadée que cette &quot;erreur de parcours&quot; m&apos;a
+          apporté de nombreuses qualités qui me permettront de me démarquer dans
+          ce domaine : logique, rigueur, résilience, respect des deadlines,
+          etc... <br />
+          <br />
+          Un jour, un grand homme a dit : &quot;Vos ambitions ne servent à RIEN
+          ! (sans cette méthode)&quot;. Vous avez peut-être reconnu le titre
+          d&apos;une vidéo YouTube de Shubham Sharma, dans laquelle il parle de
+          ses groupes &quot;d&apos;accountability&quot;. Je vous laisse aller
+          voir la vidéo si vous voulez en savoir plus sur la méthode. Mais de
+          mon côté, n&apos;ayant pas de contacts potentiellement disponibles
+          pour cet exercice, j&apos;ai décidé de l&apos;appliquer à ma façon,
+          ici. <br />
+          <br />
+          J&apos;ai décidé de documenter mon parcours, de ma formation aux
+          langages et concepts, à la création de ma première application, en
+          passant par tous les questionnements et les choix qui vont se
+          présenter à moi sur le chemin de l&apos;entrepreneuriat !<br />
+          <br /> Bref, un nouveau chapitre qui s&apos;ouvre à moi 🤩 <br />
+          <br />A suivre...
         </p>
       </div>
     </div>
