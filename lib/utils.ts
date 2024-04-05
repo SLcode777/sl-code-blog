@@ -1,6 +1,6 @@
 import { type ClassValue, clsx } from "clsx";
 import { twMerge } from "tailwind-merge";
-import { Post } from "#site/content";
+import { post } from "#site/content";
 
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
@@ -15,7 +15,7 @@ export function formatDate(input: string | number): string {
   });
 }
 
-export function sortPosts(posts: Array<Post>) {
+export function sortPosts(posts: Array<post>) {
   return posts.sort((a, b) => {
     if (a.date > b.date) return -1;
     if (a.date < b.date) return 1;
