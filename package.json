@@ -16,6 +16,7 @@
     "@vercel/analytics": "^1.2.2",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.0",
+    "github-slugger": "^2.0.0",
     "lucide-react": "^0.364.0",
     "next": "14.1.4",
     "next-themes": "^0.3.0",
