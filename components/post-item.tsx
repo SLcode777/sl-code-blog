@@ -2,13 +2,14 @@ import { cn, formatDate } from "@/lib/utils";
 import { Calendar } from "lucide-react";
 import Link from "next/link";
 import { buttonVariants } from "./ui/button";
+import { Tag } from "./tag";
 
 interface PostItemProps {
   slug: string;
   title: string;
   description?: string;
   date: string;
-  tags?: string[];
+  tags?: Array<string>;
 }
 
 export function PostItem({
@@ -24,14 +25,11 @@ export function PostItem({
         <h2 className="text-2xl font-bold">
           <Link href={slug}>{title}</Link>
         </h2>
-        <div className="max-w-none text-muted-foreground">
-          {tags?.map((tag, index) => (
-            <span key={index} className="tag-style">
-              {tag}
-              {index < tags.length - 1 ? ", " : ""}
-            </span>
-          ))}
-        </div>
+      </div>
+      <div className="flex gap-2">
+        {tags?.map((tag) => (
+          <Tag tag={tag} key={tag} />
+        ))}
       </div>
       <div className="max-w-none text-muted-foreground">{description}</div>
       <div className="flex justify-between items-center">
