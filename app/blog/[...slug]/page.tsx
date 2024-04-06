@@ -73,7 +73,7 @@ export default async function PostPage({ params }: PostPageProps) {
   return (
     <article className="container py-6 prose dark:prose-invert max-w-3xl mx-auto">
       <PostImage
-        imageUrl={post.image}
+        imageUrl={post.image as string}
         altText={`Image d'illustration de ${post.title}`}
         width={480}
         height={480}
