@@ -5,6 +5,7 @@ import "@/styles/mdx.css";
 import { Metadata } from "next";
 import { siteConfig } from "@/config/site";
 import { Tag } from "@/components/tag";
+import PostImage from "@/components/post-image";
 
 interface PostPageProps {
   params: {
@@ -71,6 +72,12 @@ export default async function PostPage({ params }: PostPageProps) {
 
   return (
     <article className="container py-6 prose dark:prose-invert max-w-3xl mx-auto">
+      <PostImage
+        imageUrl={post.image}
+        altText={`Image d'illustration de ${post.title}`}
+        width={480}
+        height={480}
+      />
       <h1 className="mb-2">{post.title}</h1>
       <div className="flex gap-2 mb-2">
         {post.tags?.map((tag) => (

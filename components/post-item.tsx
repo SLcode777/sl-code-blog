@@ -3,6 +3,7 @@ import { Calendar } from "lucide-react";
 import Link from "next/link";
 import { buttonVariants } from "./ui/button";
 import { Tag } from "./tag";
+import PostImage from "@/components/post-image";
 
 interface PostItemProps {
   slug: string;
@@ -10,6 +11,7 @@ interface PostItemProps {
   description?: string;
   date: string;
   tags?: Array<string>;
+  image: string;
 }
 
 export function PostItem({
@@ -18,6 +20,7 @@ export function PostItem({
   description,
   date,
   tags,
+  image,
 }: PostItemProps) {
   return (
     <article className="flex flex-col gap-2 border-border border-b py-3">
