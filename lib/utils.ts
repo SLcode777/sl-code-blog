@@ -22,3 +22,17 @@ export function sortPosts(posts: Array<post>) {
     return 0;
   });
 }
+
+export function getAllTags(posts: Array<post>) {
+  const tags: Record<string, number> = {};
+  posts.forEach((post) => {
+    post.tags?.forEach((tag) => {
+      tags[tag] = (tags[tag] ?? 0) + 1;
+    });
+  });
+  return tags;
+}
+
+export function sortTagsByCount(tags: Record<string, number>) {
+  return Object.keys(tags).sort((a, b) => tags[b] - tags[a]);
+}
