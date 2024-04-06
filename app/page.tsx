@@ -60,6 +60,7 @@ export default function Home() {
                 description={post.description}
                 date={post.date}
                 tags={post.tags}
+                image={post.image as string}
               />
             </li>
           ))}
