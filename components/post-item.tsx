@@ -8,15 +8,30 @@ interface PostItemProps {
   title: string;
   description?: string;
   date: string;
+  tags?: string[];
 }
 
-export function PostItem({ slug, title, description, date }: PostItemProps) {
+export function PostItem({
+  slug,
+  title,
+  description,
+  date,
+  tags,
+}: PostItemProps) {
   return (
     <article className="flex flex-col gap-2 border-border border-b py-3">
-      <div>
+      <div className="flex flex-row justify-between">
         <h2 className="text-2xl font-bold">
           <Link href={slug}>{title}</Link>
         </h2>
+        <div className="max-w-none text-muted-foreground">
+          {tags?.map((tag, index) => (
+            <span key={index} className="tag-style">
+              {tag}
+              {index < tags.length - 1 ? ", " : ""}
+            </span>
+          ))}
+        </div>
       </div>
       <div className="max-w-none text-muted-foreground">{description}</div>
       <div className="flex justify-between items-center">
@@ -26,7 +41,7 @@ export function PostItem({ slug, title, description, date }: PostItemProps) {
             <Calendar className="h-4 w-4" />
             <time dateTime={date}>{formatDate(date)}</time>
           </dd>
-        </dl>
+        </dl>{" "}
         <Link
           href={slug}
           className={cn(buttonVariants({ variant: "link" }), "py-0")}

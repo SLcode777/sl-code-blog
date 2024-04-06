@@ -70,6 +70,14 @@ export default async function PostPage({ params }: PostPageProps) {
 
   return (
     <article className="container py-6 prose dark:prose-invert max-w-3xl mx-auto">
+      <div className="max-w-none">
+        {post.tags?.map((tag, index) => (
+          <span key={index} className="tag-style">
+            {tag}
+            {index < post.tags.length - 1 ? ", " : ""}
+          </span>
+        ))}
+      </div>{" "}
       <h1 className="mb-2">{post.title}</h1>
       {post.description ? (
         <p className="text-xl mt-0 text-muted-foreground">{post.description}</p>
