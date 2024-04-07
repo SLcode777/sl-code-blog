@@ -48,18 +48,19 @@ export default async function AboutPage() {
           configurer des espaces Notion, pour mes besoins personnels, et
           professionnels.
           <br /> <br />
-          Et puis, j&apos;ai découvert il y a quelques temps le monde
-          merveilleux du no-code qui m&apos;ouvre de nouvelles portes, celle de
-          la programmation de véritables applications, pour mes propres besoins
-          et surtout pour les besoins des autres. Je me suis formée sur Bubble
-          mais je me suis vite aperçu qu&apos;il m&apos;en fallait plus !
-          J&apos;ai donc choisi d&apos;apprendre Javascript, HTML et CSS dans un
-          premier temps parce que je veux voir et maîtriser ce qu&apos;il y a
-          &quot;sous le capot&quot; pour devenir développeuse ! Le parcours sera
-          beaucoup plus long que si j&apos;avais choisi de rester sur des outils
-          no-code, mais je suis plus motivée que jamais à percer les secrets de
-          ces langages mystérieux qui font ronronner nos applications et sites
-          préférés ^^
+          Et puis, j&apos;ai découvert il y a quelques temps le monde du no-code
+          qui m&apos;ouvre de nouvelles portes, celle de la programmation de
+          véritables applications, pour mes propres besoins et surtout pour les
+          besoins des autres. Je me suis formée sur Bubble mais je me suis vite
+          aperçu qu&apos;il m&apos;en fallait plus ! J&apos;ai donc choisi
+          d&apos;apprendre Javascript, HTML et CSS dans un premier temps parce
+          que je veux voir et maîtriser ce qu&apos;il y a &quot;sous le
+          capot&quot; pour devenir développeuse ! Par la suite, je veux
+          apprendre React, Next.js et le SQL pour être capable de développer mes
+          propres applications web. Le parcours sera beaucoup plus long que si
+          j&apos;avais choisi de rester sur des outils no-code, mais je suis
+          plus motivée que jamais à percer les secrets de ces langages
+          mystérieux qui font ronronner nos applications et sites préférés ^^
           <br /> <br />
           Je prépare avec ardeur et passion mon lancement dans ce nouveau monde
           et je réfléchis, à mes futurs produits, à mon branding, mes
@@ -70,21 +71,24 @@ export default async function AboutPage() {
           ce domaine : logique, rigueur, résilience, respect des deadlines,
           etc... <br />
           <br />
-          Un jour, un grand homme a dit : &quot;Vos ambitions ne servent à RIEN
-          ! (sans cette méthode)&quot;. Vous avez peut-être reconnu le titre
-          d&apos;une vidéo YouTube de Shubham Sharma, dans laquelle il parle de
-          ses groupes &quot;d&apos;accountability&quot;. Je vous laisse aller
-          voir la vidéo si vous voulez en savoir plus sur la méthode. Mais de
-          mon côté, n&apos;ayant pas de contacts potentiellement disponibles
-          pour cet exercice, j&apos;ai décidé de l&apos;appliquer à ma façon,
-          ici. <br />
-          <br />
           J&apos;ai décidé de documenter mon parcours, de ma formation aux
           langages et concepts, à la création de ma première application, en
           passant par tous les questionnements et les choix qui vont se
-          présenter à moi sur le chemin de l&apos;entrepreneuriat !<br />
+          présenter à moi sur le chemin de l&apos;entrepreneuriat ! Cela me
+          permettra de : <br />
+          <br />
+          <ul>
+            <li>- poser mes objectifs</li>
+            <li>- voir mes progrès et donc rester motivée</li>
+            <li>- ne pas oublier tout ce que j&apos;ai réalisé</li>
+            <li>
+              - pouvoir discuter avec des personnes passionnées de dev ou des
+              personnes sur un parcours de reconversion vers le dev
+            </li>
+          </ul>{" "}
+          <br />
           <br /> Bref, un nouveau chapitre qui s&apos;ouvre à moi 🤩 <br />
-          <br />A suivre...
+          <br />A suivre 🚀🌟
         </p>
       </div>
     </div>
