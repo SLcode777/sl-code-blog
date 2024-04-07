@@ -2,6 +2,7 @@ import { getAllTags, sortTagsByCount } from "@/lib/utils";
 import { Metadata } from "next";
 import { posts } from "#site/content";
 import { Tag } from "@/components/tag";
+import { ProfileForm } from "@/components/newsletter-form";
 
 export const metadata: Metadata = {
   title: "Tags",
@@ -25,6 +26,7 @@ export default async function TagsPage() {
           <Tag tag={tag} count={tags[tag]} key={tag} />
         ))}
       </div>
+      <ProfileForm></ProfileForm>
     </div>
   );
 }
