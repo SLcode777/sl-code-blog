@@ -74,3 +74,14 @@
     @apply bg-background text-foreground;
   }
 }
+
+@font-face {
+  font-family: "Norwester";
+  src: url("/norwester.otf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+.titre {
+  font-family: "Norwester", sans-serif;
+}

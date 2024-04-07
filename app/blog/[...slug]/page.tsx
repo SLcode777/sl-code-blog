@@ -78,7 +78,7 @@ export default async function PostPage({ params }: PostPageProps) {
         width={480}
         height={480}
       />
-      <h1 className="mb-2">{post.title}</h1>
+      <h1 className="mb-2 titre">{post.title}</h1>
       <div className="flex gap-2 mb-2">
         {post.tags?.map((tag) => (
           <Tag tag={tag} key={tag} />
