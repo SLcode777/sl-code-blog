@@ -40,3 +40,5 @@ next-env.d.ts
 
 # api keys
 .env.development
+.env.production
+.env.local
