@@ -24,7 +24,6 @@ const PostImage: React.FC<PostImageProps> = ({
         alt={altText || "image d'article"}
         width={width}
         height={height}
-        layout="responsive"
       />
     </div>
   );

@@ -24,7 +24,7 @@ export function SiteFooter() {
           <Icons.gitHub className="h-6 w-6" />
         </a>
       </div>
-      <div className="hidden mb-2 flex space-x-2 justify-center text-sm text-muted-foreground">
+      <div className="hidden mb-2 space-x-2 justify-center text-sm text-muted-foreground">
         <a href={siteConfig.links.portfolio} target="_blank">
           {siteConfig.author}
         </a>
