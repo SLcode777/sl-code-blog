@@ -37,3 +37,6 @@ next-env.d.ts
 
 # velite files
 .velite
+
+# api keys
+.env.development

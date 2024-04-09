@@ -14,9 +14,9 @@ import {
   FormLabel,
   FormMessage,
 } from "@/components/ui/form";
-
 import { Input } from "@/components/ui/input";
 
+//Validation des données entrées via Zod
 const formSchema = z.object({
   username: z
     .string()
@@ -30,7 +30,7 @@ const formSchema = z.object({
 });
 
 export function ProfileForm() {
-  //Define the form
+  //1. Define the form
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -39,11 +39,33 @@ export function ProfileForm() {
     },
   });
 
-  //Define the submit handler (à voir avec Prisma/postgreSQL)
-  function onSubmit(values: z.infer<typeof formSchema>) {
-    console.log(values);
+  //2. Define the handler
+  //AU CLIC SUR LE BOUTON "Envoyer" DE MON INSCRIPTION NEWSLETTER
+  //Les données du form sont envoyées à l'endpoint API de resend
+  async function onSubmit(values: z.infer<typeof formSchema>) {
+    try {
+      const response = await fetch("/api/send", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          firstName: values.username,
+          email: values.usermail,
+        }),
+      });
+
+      if (!response.ok) {
+        throw new Error("Network response was not ok");
+      }
+
+      const data = await response.json();
+    } catch (error) {
+      console.error("Erreur lors de la soumission du formulaire:", error);
+    }
   }
 
+  //3. Define the HTML
   return (
     <div>
       <hr className="mt-8"></hr>
