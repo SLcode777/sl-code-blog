@@ -78,17 +78,20 @@ export default async function PostPage({ params }: PostPageProps) {
         width={480}
         height={480}
       />
-      <h1 className="mb-2 titre">{post.title}</h1>
+      <h1 className="mb-2 titre text-foreground">{post.title}</h1>
       <div className="flex gap-2 mb-2">
         {post.tags?.map((tag) => (
           <Tag tag={tag} key={tag} />
         ))}
       </div>
       {post.description ? (
-        <p className="text-xl mt-0 text-muted-foreground">{post.description}</p>
+        <p className="text-xl mt-0 text-muted-foreground border-b pb-6">
+          {post.description}
+        </p>
       ) : null}
-      <hr className="my-4" />
-      <MDXContent code={post.body} />
+      <p className="text-muted-foreground">
+        <MDXContent code={post.body} />
+      </p>
     </article>
   );
 }
