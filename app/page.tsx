@@ -48,7 +48,7 @@ export default function Home() {
           </div>
         </div>
       </section>
-      <section className="flex justify-center">
+      <section className="flex justify-center container max-w-4xl">
         <div className="flex fit-content px-12 border-b">
           <PostImage
             imageUrl={"/img/stellaNB-lucy.png"}
