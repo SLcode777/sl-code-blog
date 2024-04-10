@@ -2,6 +2,7 @@ import type { NextApiRequest, NextApiResponse } from "next";
 import { EmailTemplate } from "@/components/email-template";
 import { Resend } from "resend";
 import { error } from "console";
+import { addContactToAudience } from "./contacts-resend";
 
 //submitHandler permet de récupérer les données reçues par l'API de resend et déclenche l'envoi du mail
 
@@ -20,7 +21,7 @@ const submitHandler = async (req: NextApiRequest, res: NextApiResponse) => {
 
   try {
     const { data, error } = await resend.emails.send({
-      from: "Lucy <contact@paper-street.fr>", //e-mail de l'expéditeur
+      from: "Stella <contact@paper-street.fr>", //e-mail de l'expéditeur
       to: [email], //e-mail récupéré dans le form
       subject: "Ton inscription sur mon blog SL Code !",
       text: "ceci est un champ obligatoire", //je sais pas trop à quoi il sert celui-là 😅
@@ -30,6 +31,13 @@ const submitHandler = async (req: NextApiRequest, res: NextApiResponse) => {
     if (error) {
       return res.status(400).json(error);
     }
+
+    addContactToAudience({
+      email: email,
+      firstName: firstName,
+      unsubscribed: false,
+      audienceId: "9595ebc2-603c-4cfa-b3f5-db3224fe0cb4",
+    });
 
     res.status(200).json(data);
   } catch {

@@ -59,7 +59,7 @@ export function ProfileForm() {
         throw new Error("Network response was not ok");
       }
 
-      const data = await response.json();
+      const data = await response.json(); //data n'est pas utilisé ?
     } catch (error) {
       console.error("Erreur lors de la soumission du formulaire:", error);
     }

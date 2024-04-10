@@ -2,7 +2,7 @@ export const siteConfig = {
   name: "",
   url: "https://sl-code-blog.vercel.app/",
   description: "Blog d'une comptable en reconversion vers le développement web",
-  author: "Lucy",
+  author: "Stella",
   links: {
     github: "https://github.com/StellaDePaperStreet",
     linkedin: "https://www.linkedin.com/in/stella-de-paperstreet-419929293/",
