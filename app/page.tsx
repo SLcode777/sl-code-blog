@@ -4,12 +4,13 @@ import { cn, sortPosts } from "@/lib/utils";
 import { posts } from "#site/content";
 import Link from "next/link";
 import { PostItem } from "@/components/post-item";
+import PostImage from "@/components/post-image";
 
 export default function Home() {
   const latestPosts = sortPosts(posts).slice(0, 5);
   return (
     <>
-      <section className="space-y-6 pb-8 pt-6 md:pb-12 md:mt-10 lg:py-32">
+      <section className="space-y-6 pb-8 pt-6 md:pb-12 md:mt-10 lg:pt-32">
         <div className="container flex flex-col gap-4 text-center">
           <h1 className="titre pb-8 text-3xl sm:text-5xl md:text-6xl lg:text-7xl text-balance">
             La comptable qui voulait devenir developpeuse
@@ -47,7 +48,17 @@ export default function Home() {
           </div>
         </div>
       </section>
-      <section className="container max-w-4xl py-6 lg:py-10 flex flex-col space-y-6 mt-60">
+      <section className="flex justify-center">
+        <div className="flex fit-content px-12 border-b">
+          <PostImage
+            imageUrl={"/img/stellaNB-lucy.png"}
+            altText={`Image d'illustration`}
+            width={480}
+            height={480}
+          />
+        </div>
+      </section>
+      <section className="container max-w-4xl py-6 lg:py-10 flex flex-col space-y-6 mt-30">
         <h2 className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl titre text-center ">
           Derniers posts
         </h2>
