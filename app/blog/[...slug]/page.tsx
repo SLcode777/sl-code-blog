@@ -6,6 +6,7 @@ import { Metadata } from "next";
 import { siteConfig } from "@/config/site";
 import { Tag } from "@/components/tag";
 import PostImage from "@/components/post-image";
+import { ProfileForm } from "@/components/newsletter-form";
 
 interface PostPageProps {
   params: {
@@ -71,27 +72,32 @@ export default async function PostPage({ params }: PostPageProps) {
   }
 
   return (
-    <article className="container py-6 prose dark:prose-invert max-w-3xl mx-auto">
-      <PostImage
-        imageUrl={post.image ?? "/img/postimg012.webp"}
-        altText={`Image d'illustration de ${post.title}`}
-        width={480}
-        height={480}
-      />
-      <h1 className="mb-2 titre text-foreground">{post.title}</h1>
-      <div className="flex gap-2 mb-2">
-        {post.tags?.map((tag) => (
-          <Tag tag={tag} key={tag} />
-        ))}
-      </div>
-      {post.description ? (
-        <p className="text-xl mt-0 text-muted-foreground border-b pb-6">
-          {post.description}
+    <>
+      <article className="container py-6 prose dark:prose-invert max-w-3xl mx-auto">
+        <PostImage
+          imageUrl={post.image ?? "/img/postimg012.webp"}
+          altText={`Image d'illustration de ${post.title}`}
+          width={480}
+          height={480}
+        />
+        <h1 className="mb-2 titre text-foreground">{post.title}</h1>
+        <div className="flex gap-2 mb-2">
+          {post.tags?.map((tag) => (
+            <Tag tag={tag} key={tag} />
+          ))}
+        </div>
+        {post.description ? (
+          <p className="text-xl mt-0 text-muted-foreground border-b pb-6">
+            {post.description}
+          </p>
+        ) : null}
+        <p className="text-muted-foreground">
+          <MDXContent code={post.body} />
         </p>
-      ) : null}
-      <p className="text-muted-foreground">
-        <MDXContent code={post.body} />
-      </p>
-    </article>
+      </article>
+      <section className="container max-w-3xl py-6 lg:py-10 flex flex-col space-y-6 mt-30">
+        <ProfileForm></ProfileForm>
+      </section>
+    </>
   );
 }

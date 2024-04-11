@@ -5,6 +5,7 @@ import { posts } from "#site/content";
 import Link from "next/link";
 import { PostItem } from "@/components/post-item";
 import PostImage from "@/components/post-image";
+import { ProfileForm } from "@/components/newsletter-form";
 
 export default function Home() {
   const latestPosts = sortPosts(posts).slice(0, 5);
@@ -76,6 +77,9 @@ export default function Home() {
             </li>
           ))}
         </ul>
+      </section>
+      <section className="container max-w-4xl py-6 lg:py-10 flex flex-col space-y-6 mt-30">
+        <ProfileForm></ProfileForm>
       </section>
     </>
   );
