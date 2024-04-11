@@ -107,7 +107,7 @@ export function ProfileForm() {
                 <FormMessage />
                 <p className="italic text-md text-muted-foreground font-light">
                   Tu recevras un e-mail de ma part uniquement lorsque je
-                  publierai un nouvel article sur mon blog :)
+                  publierai un nouvel article :)
                 </p>
               </FormItem>
             )}
