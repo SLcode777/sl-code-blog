@@ -112,7 +112,9 @@ export function ProfileForm() {
               </FormItem>
             )}
           />
-          <Button type="submit">Envoyer</Button>
+          <Button type="submit" className="dark:hover:bg-[#FFFCDB]">
+            Envoyer
+          </Button>
         </form>
       </Form>
     </div>

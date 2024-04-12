@@ -86,6 +86,6 @@
   font-family: "Norwester", sans-serif;
 }
 
-.custom-cursor {
-  cursor: url("/star-yellow.png"), auto;
+.star-cursor {
+  cursor: url("/star-yellow.cur"), auto;
 }

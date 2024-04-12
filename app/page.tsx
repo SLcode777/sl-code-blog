@@ -30,7 +30,10 @@ export default function Home() {
           <div className="pt-8 flex flex-col gap-4 justify-center sm:flex-row">
             <Link
               href="/blog"
-              className={cn(buttonVariants({ size: "lg" }), "w-full sm:w-fit")}
+              className={cn(
+                buttonVariants({ size: "lg" }),
+                "w-full sm:w-fit font-bold dark:hover:bg-[#FFFCDB] cursor-[url(/star-yellow.cur), _pointer]"
+              )}
             >
               Voir mon blog
             </Link>

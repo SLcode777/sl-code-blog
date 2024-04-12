@@ -61,7 +61,7 @@ export const EmailTemplate: React.FC<Readonly<EmailTemplateProps>> = ({
     </p>
     <hr />
     <a
-      href="l-code-blog.vercel.app"
+      href="ls-code-blog.vercel.app"
       style={{
         color: "#CCBC9E",
         marginTop: "30px",
