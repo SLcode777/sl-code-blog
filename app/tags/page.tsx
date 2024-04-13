@@ -1,8 +1,9 @@
-import { getAllTags, sortTagsByCount } from "@/lib/utils";
+import { cn, getAllTags, sortTagsByCount } from "@/lib/utils";
 import { Metadata } from "next";
 import { posts } from "#site/content";
 import { Tag } from "@/components/tag";
-import { ProfileForm } from "@/components/newsletter-form";
+import Link from "next/link";
+import { buttonVariants } from "@/components/ui/button";
 
 export const metadata: Metadata = {
   title: "Tags",
@@ -26,7 +27,19 @@ export default async function TagsPage() {
           <Tag tag={tag} count={tags[tag]} key={tag} />
         ))}
       </div>
-      <ProfileForm></ProfileForm>
+      {/*BOUTON A SUPPRIMER - UNIQUEMENT POUR TEST LE REVEAL*/}
+      <div className="pt-8 flex flex-col gap-4 justify-center sm:flex-row">
+        <Link
+          href="/reveal"
+          className={cn(
+            buttonVariants({ size: "lg" }),
+            "w-full sm:w-fit font-bold dark:hover:bg-[#FFFCDB] cursor-[url(/star-yellow.cur), _pointer]"
+          )}
+        >
+          Voir le reveal
+        </Link>
+      </div>
+      {/*BOUTON A SUPPRIMER - UNIQUEMENT POUR TEST LE REVEAL*/}
     </div>
   );
 }
