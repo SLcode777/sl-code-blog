@@ -27,7 +27,7 @@ export default function RevealPage() {
           if (remaining <= 0) {
             element.style.opacity = "0";
             window.location.href =
-              "https://sl-code-blog.vercel.app/blog/013-un-echec";
+              "https://sl-code-blog.vercel.app/blog/014-goodbye-framer-hello-react";
           } else {
             opacity = remaining / duration;
             element.style.opacity = opacity.toString();
