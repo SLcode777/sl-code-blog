@@ -5,7 +5,7 @@ export const siteConfig = {
   author: "Stella",
   links: {
     github: "https://github.com/StellaDePaperStreet",
-    linkedin: "https://www.linkedin.com/in/stella-de-paperstreet-419929293/",
+    linkedin: "https://www.linkedin.com/in/stella-de-sl-code-419929293/",
     portfolio: "",
   },
 };
