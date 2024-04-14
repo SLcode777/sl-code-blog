@@ -81,9 +81,6 @@ export function ProfileForm() {
                 <FormControl>
                   <Input placeholder="nom d'utilisateur" {...field} />
                 </FormControl>
-                <FormDescription>
-                  Ton prénom pour que je puisse personnaliser ton message.
-                </FormDescription>
                 <FormMessage />
               </FormItem>
             )}
@@ -101,18 +98,16 @@ export function ProfileForm() {
                     {...field}
                   />
                 </FormControl>
-                <FormDescription>
-                  Adresse à laquelle tu souhaites recevoir de mes nouvelles.
-                </FormDescription>
                 <FormMessage />
                 <p className="italic text-md text-muted-foreground font-light">
+                  <br />
                   Tu recevras un e-mail de ma part uniquement lorsque je
                   publierai un nouvel article :)
                 </p>
               </FormItem>
             )}
           />
-          <Button type="submit" className="dark:hover:bg-[#FFFCDB]">
+          <Button type="submit" className="dark:hover:bg-[#FFFCDB] w-full">
             Envoyer
           </Button>
         </form>
