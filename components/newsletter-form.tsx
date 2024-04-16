@@ -16,6 +16,9 @@ import {
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 
+import React, { useState, useEffect } from "react";
+import { AlertMailSent, AlertMailNotSent } from "./alert";
+
 //Validation des données entrées via Zod
 const formSchema = z.object({
   username: z
@@ -39,6 +42,9 @@ export function ProfileForm() {
     },
   });
 
+  const [isMailSent, setIsMailSent] = useState(false); //gère l'état du composant pour afficher ou pas AlertMailSent
+  const [isError, setIsError] = useState(false); //idem mais pour AlertMailNotSent
+
   //2. Define the handler
   //AU CLIC SUR LE BOUTON "Envoyer" DE MON INSCRIPTION NEWSLETTER
   //Les données du form sont envoyées à l'endpoint API de resend
@@ -59,9 +65,20 @@ export function ProfileForm() {
         throw new Error("Network response was not ok");
       }
 
+      setIsMailSent(true); //pour afficher l'AlertMailSent
+
+      setTimeout(() => {
+        setIsMailSent(false);
+      }, 2000); //masque l'alerte après 2 secondes
+
       const data = await response.json(); //data n'est pas utilisé ?
     } catch (error) {
       console.error("Erreur lors de la soumission du formulaire:", error);
+      setIsError(true);
+      setTimeout(() => {
+        setIsError(false);
+      }, 2000);
+      // setIsMailSent(false);
     }
   }
 
@@ -112,6 +129,8 @@ export function ProfileForm() {
           </Button>
         </form>
       </Form>
+      <div className="mb-4">{isMailSent && <AlertMailSent />}</div>
+      <div className="mb-4">{isError && <AlertMailNotSent />}</div>
     </div>
   );
 }
