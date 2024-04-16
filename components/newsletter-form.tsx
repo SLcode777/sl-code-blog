@@ -18,6 +18,7 @@ import { Input } from "@/components/ui/input";
 
 import React, { useState, useEffect } from "react";
 import { AlertMailSent, AlertMailNotSent } from "./alert";
+import { CSSTransition } from "react-transition-group";
 
 //Validation des données entrées via Zod
 const formSchema = z.object({
@@ -129,8 +130,39 @@ export function ProfileForm() {
           </Button>
         </form>
       </Form>
-      <div className="mb-4">{isMailSent && <AlertMailSent />}</div>
-      <div className="mb-4">{isError && <AlertMailNotSent />}</div>
+      <CSSTransition
+        in={isMailSent}
+        timeout={500}
+        classNames={{
+          enter: "opacity-0",
+          enterActive: "opacity-100 transition-opacity duration-500",
+          exit: "opacity-100",
+          exitActive: "opacity-0 transition-opacity duration-500",
+        }}
+        unmountOnExit
+      >
+        <div className="mb-4">
+          <AlertMailSent />
+        </div>
+      </CSSTransition>
+      <CSSTransition
+        in={isError}
+        timeout={500}
+        classNames={{
+          enter: "opacity-0",
+          enterActive: "opacity-100 transition-opacity duration-500",
+          exit: "opacity-100",
+          exitActive: "opacity-0 transition-opacity duration-500",
+        }}
+        unmountOnExit
+      >
+        <div className="mb-4">
+          <AlertMailNotSent />
+        </div>
+      </CSSTransition>
     </div>
   );
 }
+
+//fade out ne fonctionne pas
+//corriger le "rebond" lorsque l'alerte s'affiche

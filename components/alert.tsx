@@ -1,5 +1,6 @@
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
 
+
 export function AlertMailSent() {
   return (
     <Alert className="mt-4 border-lime-700">
