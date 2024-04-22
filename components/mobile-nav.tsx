@@ -36,12 +36,16 @@ export function MobileNav() {
           <MobileLink onOpenChange={setOpen} href="/about">
             About
           </MobileLink>
-          <Link target="_blank" rel="noreferrer" href={siteConfig.links.github}>
+          <Link
+            target="_blank"
+            rel="noreferrer noopener" //noreferrer = confidentialité & noopener = sécurité
+            href={siteConfig.links.github}
+          >
             Github
           </Link>
           <Link
             target="_blank"
-            rel="noreferrer"
+            rel="noreferrer noopener" //noreferrer = confidentialité & noopener = sécurité
             href={siteConfig.links.linkedin}
           >
             Linkedin

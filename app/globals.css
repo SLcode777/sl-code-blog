@@ -89,3 +89,15 @@
 .star-cursor {
   cursor: url("/star-yellow.cur"), auto;
 }
+
+.correct {
+  background-color: #65a30d; /* Vert pour les lettres correctement placées */
+}
+
+.present {
+  background-color: #ca8a04; /* Jaune pour les lettres présentes mais mal placées */
+}
+
+.incorrect {
+  background-color: #57534e; /* Gris pour les lettres incorrectes */
+}

@@ -32,7 +32,7 @@ export default function Home() {
               href="/blog"
               className={cn(
                 buttonVariants({ size: "lg" }),
-                "w-full sm:w-fit font-bold dark:hover:bg-[#FFFCDB] cursor-[url(/star-yellow.cur), _pointer]"
+                "w-full sm:w-fit font-bold dark:hover:bg-[#FFFCDB]"
               )}
             >
               Voir mon blog
@@ -40,7 +40,7 @@ export default function Home() {
             <Link
               href={siteConfig.links.github}
               target="_blank"
-              rel="noreferrer"
+              rel="noreferrer noopener"
               className={cn(
                 buttonVariants({ variant: "outline", size: "lg" }),
                 "w-full sm:w-fit"

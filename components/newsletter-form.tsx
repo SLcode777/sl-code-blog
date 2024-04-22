@@ -70,9 +70,9 @@ export function ProfileForm() {
 
       setTimeout(() => {
         setIsMailSent(false);
-      }, 2000); //masque l'alerte après 2 secondes
+      }, 2000); //masque l'alerte après 2 secondes Est-ce que c'est pas ça qui empêche mon fade-out ??
 
-      const data = await response.json(); //data n'est pas utilisé ?
+      const data = await response.json(); //data n'est pas utilisé ici mais on peut garder la ligne pour un besoin ultérieur (ou debug/test)
     } catch (error) {
       console.error("Erreur lors de la soumission du formulaire:", error);
       setIsError(true);
@@ -163,6 +163,3 @@ export function ProfileForm() {
     </div>
   );
 }
-
-//fade out ne fonctionne pas
-//corriger le "rebond" lorsque l'alerte s'affiche

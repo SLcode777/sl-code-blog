@@ -17,7 +17,7 @@ export function SiteHeader() {
             <Link
               href={siteConfig.links.github}
               target="_blank"
-              rel="noreferrer"
+              rel="noreferrer noopener"
             >
               <div
                 className={cn(
@@ -32,7 +32,7 @@ export function SiteHeader() {
             <Link
               href={siteConfig.links.linkedin}
               target="_blank"
-              rel="noreferrer"
+              rel="noreferrer noopener"
             >
               <div
                 className={cn(
