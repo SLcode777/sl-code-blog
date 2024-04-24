@@ -1,29 +1,5 @@
 import { useState, useEffect } from "react";
-
-const MOTS = [
-  "avion",
-  "belle",
-  "chien",
-  "droit",
-  "eclat",
-  "forme",
-  "givre",
-  "havre",
-  "ideal",
-  "jouer",
-  "lourd",
-  "mains",
-  "noyer",
-  "ombre",
-  "porte",
-  "rouge",
-  "sable",
-  "table",
-  "usure",
-  "vivre",
-  "wagon",
-  "zebre",
-];
+import { WORDS } from "@/lib/words";
 
 function selectRandomWord(words: string[]): string {
   const randomIndex = Math.floor(Math.random() * words.length);
@@ -43,9 +19,11 @@ export default function UseWordle() {
   const [guesses, setGuesses] = useState<string[]>([]);
   const [guessStatus, setGuessStatus] = useState<string[][]>([]);
   const [letterStatus, setLetterStatus] = useState<LetterStatus>({});
+  const [showDialog, setShowDialog] = useState(false);
+  const [gameResult, setGameResult] = useState<string>("");
 
   useEffect(() => {
-    setSolution(selectRandomWord(MOTS));
+    setSolution(selectRandomWord(WORDS));
   }, []);
   console.log("la solution est:", solution);
 
@@ -106,8 +84,14 @@ export default function UseWordle() {
 
     if (currentGuess.toUpperCase() === solution.toUpperCase()) {
       setTimeout(() => {
-        alert("VOUS AVEZ GAGNE !");
+        setGameResult("win");
+        setShowDialog(true);
       }, 500);
+    } else if (guesses.length === 5) {
+      setTimeout(() => {
+        setGameResult("lost");
+        setShowDialog(true);
+      });
     }
   }
 
@@ -119,5 +103,8 @@ export default function UseWordle() {
     guessStatus,
     letterStatus,
     rows,
+    showDialog,
+    setShowDialog,
+    gameResult,
   };
 }

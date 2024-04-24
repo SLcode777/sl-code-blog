@@ -1,22 +1,24 @@
 "use client";
 
 import { cn } from "@/lib/utils";
-import Link from "next/link";
 import { Button, buttonVariants } from "@/components/ui/button";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import React from "react";
 import UseWordle from "../useWordle";
+import { WordleGameover } from "@/components/wordle-gameover";
 
-const Alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("");
+const Alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ⬅☑".split("");
 
 export default function Wordle() {
   const {
-    currentGuess,
     handleKeyup,
     guessStatus,
-    guesses,
     letterStatus,
     rows,
+    showDialog,
+    setShowDialog,
+    solution,
+    gameResult,
   } = UseWordle();
 
   useEffect(() => {
@@ -26,6 +28,10 @@ export default function Wordle() {
     window.addEventListener("keyup", handleKeyUpTyped);
     return () => window.removeEventListener("keyup", handleKeyUpTyped);
   }, [handleKeyup]);
+
+  // function WordleGameoverType() {
+  //   const [showDialog, setShowDialog] = useState(false);
+  // }
 
   return (
     <div className="container max-w-4xl py-6 lg:py-10">
@@ -55,7 +61,7 @@ export default function Wordle() {
       </div>
       <hr className="mt-4 mb-8" />
 
-      <section className="flex flex-col gap-2">
+      <section id="keyboard" className="flex flex-col gap-2">
         <div className="grid gap-2 grid-cols-8  w-fit">
           {Alphabet.map((letter) => (
             <span
@@ -79,6 +85,14 @@ export default function Wordle() {
       >
         Rejouer
       </Button>
+      <div>
+        <WordleGameover
+          showDialog={showDialog}
+          setShowDialog={setShowDialog}
+          gameResult={gameResult}
+          solution={solution}
+        />
+      </div>
     </div>
   );
 }
