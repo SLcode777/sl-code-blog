@@ -22,13 +22,17 @@ export default function UseWordle() {
   const [letterStatus, setLetterStatus] = useState<LetterStatus>({});
   const [showDialog, setShowDialog] = useState(false);
   const [gameResult, setGameResult] = useState<string>("");
-  const audioRef1 = useRef(new Audio("./keyboard01.wav"));
-  const audioRef2 = useRef(new Audio("./click01.wav"));
-  const audioRefWin = useRef(new Audio("./validation01.mp3"));
-  const audioRefLost = useRef(new Audio("./negative-beep.wav"));
+  const audioRef1 = useRef<HTMLAudioElement | null>(null);
+  const audioRef2 = useRef<HTMLAudioElement | null>(null);
+  const audioRefWin = useRef<HTMLAudioElement | null>(null);
+  const audioRefLost = useRef<HTMLAudioElement | null>(null);
   const [isExploding, setIsExploding] = useState(false);
 
   useEffect(() => {
+    audioRef1.current = new Audio("./keyboard01.wav");
+    audioRef2.current = new Audio("./click01.wav");
+    audioRefWin.current = new Audio("./validation01.mp3");
+    audioRefLost.current = new Audio("./negative-beep.wav");
     setSolution(selectRandomWord(WORDS));
   }, []);
   console.log("la solution est:", solution);
@@ -45,16 +49,16 @@ export default function UseWordle() {
   const handleKeyup = (event: React.KeyboardEvent) => {
     const { key } = event;
     if (key === "Enter") {
-      audioRef1.current.play();
+      audioRef1.current?.play();
       if (currentGuess.length === 5) {
         evaluateGuess();
       }
     } else if (key === "Backspace") {
-      audioRef2.current.play();
+      audioRef2.current?.play();
       setCurrentGuess(currentGuess.slice(0, -1));
     } else {
       if (currentGuess.length < 5 && /^[a-zA-Z]$/.test(key)) {
-        audioRef1.current.play();
+        audioRef1.current?.play();
         setCurrentGuess(currentGuess + key.toUpperCase());
       }
     }
@@ -107,7 +111,7 @@ export default function UseWordle() {
     if (currentGuess.toUpperCase() === solution.toUpperCase()) {
       setTimeout(() => {
         setGameResult("win");
-        audioRefWin.current.play();
+        audioRefWin.current?.play();
         setShowDialog(true);
         setIsExploding(true);
         setTimeout(() => setIsExploding(false), 2000);
@@ -115,7 +119,7 @@ export default function UseWordle() {
     } else if (guesses.length === 5) {
       setTimeout(() => {
         setGameResult("lost");
-        audioRefLost.current.play();
+        audioRefLost.current?.play();
         setShowDialog(true);
       });
     }
