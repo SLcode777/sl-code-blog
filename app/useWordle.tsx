@@ -1,5 +1,6 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { WORDS } from "@/lib/words";
+import ConfettiExplosion from "react-confetti-explosion";
 
 function selectRandomWord(words: string[]): string {
   const randomIndex = Math.floor(Math.random() * words.length);
@@ -21,6 +22,11 @@ export default function UseWordle() {
   const [letterStatus, setLetterStatus] = useState<LetterStatus>({});
   const [showDialog, setShowDialog] = useState(false);
   const [gameResult, setGameResult] = useState<string>("");
+  const audioRef1 = useRef(new Audio("./keyboard01.wav"));
+  const audioRef2 = useRef(new Audio("./click01.wav"));
+  const audioRefWin = useRef(new Audio("./validation01.mp3"));
+  const audioRefLost = useRef(new Audio("./negative-beep.wav"));
+  const [isExploding, setIsExploding] = useState(false);
 
   useEffect(() => {
     setSolution(selectRandomWord(WORDS));
@@ -39,15 +45,31 @@ export default function UseWordle() {
   const handleKeyup = (event: React.KeyboardEvent) => {
     const { key } = event;
     if (key === "Enter") {
+      audioRef1.current.play();
       if (currentGuess.length === 5) {
-        console.log("mot secret:", solution, "mot entré:", currentGuess);
         evaluateGuess();
       }
     } else if (key === "Backspace") {
+      audioRef2.current.play();
       setCurrentGuess(currentGuess.slice(0, -1));
     } else {
       if (currentGuess.length < 5 && /^[a-zA-Z]$/.test(key)) {
+        audioRef1.current.play();
         setCurrentGuess(currentGuess + key.toUpperCase());
+      }
+    }
+  };
+
+  const handleLetterClick = (letter: string) => {
+    if (letter === "⬅") {
+      setCurrentGuess(currentGuess.slice(0, -1));
+    } else if (letter === "☑") {
+      if (currentGuess.length === 5) {
+        evaluateGuess();
+      }
+    } else {
+      if (currentGuess.length < 5 && /^[a-zA-Z]$/.test(letter)) {
+        setCurrentGuess(currentGuess + letter);
       }
     }
   };
@@ -85,11 +107,15 @@ export default function UseWordle() {
     if (currentGuess.toUpperCase() === solution.toUpperCase()) {
       setTimeout(() => {
         setGameResult("win");
+        audioRefWin.current.play();
         setShowDialog(true);
+        setIsExploding(true);
+        setTimeout(() => setIsExploding(false), 2000);
       }, 500);
     } else if (guesses.length === 5) {
       setTimeout(() => {
         setGameResult("lost");
+        audioRefLost.current.play();
         setShowDialog(true);
       });
     }
@@ -100,11 +126,13 @@ export default function UseWordle() {
     currentGuess,
     guesses,
     handleKeyup,
+    handleLetterClick,
     guessStatus,
     letterStatus,
     rows,
     showDialog,
     setShowDialog,
     gameResult,
+    isExploding,
   };
 }

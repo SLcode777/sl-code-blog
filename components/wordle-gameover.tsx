@@ -10,7 +10,6 @@ import {
   AlertDialogTrigger,
 } from "@/components/ui/alert-dialog";
 import { useEffect, useRef } from "react";
-import UseWordle from "@/app/useWordle";
 
 interface WordleGameoverProps {
   showDialog: boolean;

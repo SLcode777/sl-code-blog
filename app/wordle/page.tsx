@@ -6,12 +6,14 @@ import { useEffect, useState } from "react";
 import React from "react";
 import UseWordle from "../useWordle";
 import { WordleGameover } from "@/components/wordle-gameover";
+import ConfettiExplosion from "react-confetti-explosion";
 
 const Alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ⬅☑".split("");
 
 export default function Wordle() {
   const {
     handleKeyup,
+    handleLetterClick,
     guessStatus,
     letterStatus,
     rows,
@@ -19,6 +21,7 @@ export default function Wordle() {
     setShowDialog,
     solution,
     gameResult,
+    isExploding,
   } = UseWordle();
 
   useEffect(() => {
@@ -28,10 +31,6 @@ export default function Wordle() {
     window.addEventListener("keyup", handleKeyUpTyped);
     return () => window.removeEventListener("keyup", handleKeyUpTyped);
   }, [handleKeyup]);
-
-  // function WordleGameoverType() {
-  //   const [showDialog, setShowDialog] = useState(false);
-  // }
 
   return (
     <div className="container max-w-4xl py-6 lg:py-10">
@@ -64,14 +63,15 @@ export default function Wordle() {
       <section id="keyboard" className="flex flex-col gap-2">
         <div className="grid gap-2 grid-cols-8  w-fit">
           {Alphabet.map((letter) => (
-            <span
+            <button
               key={letter}
+              onClick={() => handleLetterClick(letter)}
               className={`letter ${
                 letterStatus[letter] || ""
-              } border border-1 rounded-lg w-16 h-16 flex items-center justify-center text-4xl pb-1 font-semibold`}
+              } border border-1 rounded-lg h-16 w-10 md:size-16 flex items-center justify-center text-2xl md:text-4xl pb-1 font-semibold`}
             >
               {letter}
-            </span>
+            </button>
           ))}
         </div>
       </section>
@@ -93,6 +93,17 @@ export default function Wordle() {
           solution={solution}
         />
       </div>
+      {isExploding && (
+        <div className="absolute top-0 left-0">
+          <ConfettiExplosion
+            force={0.8}
+            duration={1500}
+            particleCount={300}
+            width={1600}
+            height={"200vh"}
+          />
+        </div>
+      )}
     </div>
   );
 }
