@@ -99,7 +99,7 @@ export default function Wordle() {
         />
       </div>
       {isExploding && (
-        <div className="absolute top-0 left-1/2 z-50">
+        <div className="absolute top-0 left-1/2 z-[100]">
           <ConfettiExplosion
             force={0.8}
             duration={1500}
