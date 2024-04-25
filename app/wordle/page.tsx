@@ -7,6 +7,7 @@ import React from "react";
 import UseWordle from "../useWordle";
 import { WordleGameover } from "@/components/wordle-gameover";
 import ConfettiExplosion from "react-confetti-explosion";
+import { Helmet } from "react-helmet";
 
 const Alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ⬅☑".split("");
 
@@ -34,6 +35,10 @@ export default function Wordle() {
 
   return (
     <div className="container max-w-4xl py-6 lg:py-10">
+      <Helmet>
+        <meta property="og:image" content="./og-wordle.png" />
+        <title>Wordle Challenge</title>
+      </Helmet>
       <div className="flex flex-col items-start gap-4 md:flex-row md:justify-between md:gap-8">
         <div className="flex-1 space-y-4">
           <h1 className="inline-block titre text-4xl lg:text-5xl">
@@ -94,7 +99,7 @@ export default function Wordle() {
         />
       </div>
       {isExploding && (
-        <div className="absolute top-0 left-1/2 z-1000">
+        <div className="absolute top-0 left-1/2 z-50">
           <ConfettiExplosion
             force={0.8}
             duration={1500}
