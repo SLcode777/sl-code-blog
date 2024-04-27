@@ -67,10 +67,11 @@ export function WordleGameover({
       {isExploding === true && showDialog && (
         <ConfettiExplosion
           force={0.8}
-          duration={1500}
+          duration={2500}
           particleCount={300}
-          width={1600}
-          height={"200vh"}
+          width={2000}
+          height={"400vh"}
+          zIndex={50}
         />
       )}
     </>
