@@ -10,12 +10,15 @@ import {
   AlertDialogTrigger,
 } from "@/components/ui/alert-dialog";
 import { useEffect, useRef } from "react";
+import ConfettiExplosion from "react-confetti-explosion";
 
 interface WordleGameoverProps {
   showDialog: boolean;
   setShowDialog: (show: boolean) => void;
   gameResult: string;
   solution: string;
+  isExploding: boolean;
+  setIsExploding: (isExploding: boolean) => void;
 }
 
 export function WordleGameover({
@@ -23,6 +26,7 @@ export function WordleGameover({
   setShowDialog,
   gameResult,
   solution,
+  isExploding,
 }: WordleGameoverProps) {
   const triggerRef = useRef<HTMLButtonElement>(null);
 
@@ -59,6 +63,15 @@ export function WordleGameover({
             </AlertDialogFooter>
           </AlertDialogContent>
         </AlertDialog>
+      )}
+      {isExploding === true && showDialog && (
+        <ConfettiExplosion
+          force={0.8}
+          duration={1500}
+          particleCount={300}
+          width={1600}
+          height={"200vh"}
+        />
       )}
     </>
   );

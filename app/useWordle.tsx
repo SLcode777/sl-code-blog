@@ -1,6 +1,5 @@
 import { useState, useEffect, useRef } from "react";
 import { WORDS } from "@/lib/words";
-import ConfettiExplosion from "react-confetti-explosion";
 
 function selectRandomWord(words: string[]): string {
   const randomIndex = Math.floor(Math.random() * words.length);
@@ -138,5 +137,6 @@ export default function UseWordle() {
     setShowDialog,
     gameResult,
     isExploding,
+    setIsExploding,
   };
 }
