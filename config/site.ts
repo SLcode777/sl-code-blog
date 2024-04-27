@@ -1,6 +1,6 @@
 export const siteConfig = {
   name: "",
-  url: "https://sl-code-blog.vercel.app/",
+  url: "https://sl-code.dev/",
   description: "Blog d'une comptable en reconversion vers le développement web",
   author: "Stella",
   links: {

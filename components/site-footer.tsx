@@ -10,7 +10,7 @@ export function SiteFooter() {
         <a
           target="_blank"
           rel="noreferrer noopener"
-          href="mailto:paperstreet.notion@gmail.com"
+          href="mailto:hello@sl-code.dev"
         >
           <span className="sr-only">Mail</span>
           <Mail className="h-6 w-6" />
