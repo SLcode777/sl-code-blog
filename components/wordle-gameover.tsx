@@ -38,6 +38,16 @@ export function WordleGameover({
 
   return (
     <>
+      {isExploding === true && showDialog && (
+        <ConfettiExplosion
+          force={0.8}
+          duration={2500}
+          particleCount={300}
+          width={2000}
+          height={"400vh"}
+          zIndex={50}
+        />
+      )}
       {showDialog && (
         <AlertDialog>
           <AlertDialogTrigger ref={triggerRef}></AlertDialogTrigger>
@@ -63,16 +73,6 @@ export function WordleGameover({
             </AlertDialogFooter>
           </AlertDialogContent>
         </AlertDialog>
-      )}
-      {isExploding === true && showDialog && (
-        <ConfettiExplosion
-          force={0.8}
-          duration={2500}
-          particleCount={300}
-          width={2000}
-          height={"400vh"}
-          zIndex={50}
-        />
       )}
     </>
   );
