@@ -61,7 +61,7 @@ export const EmailTemplate: React.FC<Readonly<EmailTemplateProps>> = ({
     </p>
     <hr />
     <a
-      href="sl-code-blog.vercel.app"
+      href="sl-code.dev"
       style={{
         color: "#CCBC9E",
         marginTop: "30px",
@@ -69,9 +69,5 @@ export const EmailTemplate: React.FC<Readonly<EmailTemplateProps>> = ({
     >
       Lien vers mon blog
     </a>
-    <p style={{ fontSize: "14px", color: "#AAAAAA", marginTop: "20px" }}>
-      Tu ne peux pas répondre directement à cet email. Si tu veux m&apos;écrire
-      pour le moment, utilises cette adresse : paperstreet.notion@gmail.com
-    </p>
   </div>
 );

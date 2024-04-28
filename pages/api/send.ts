@@ -21,7 +21,7 @@ const submitHandler = async (req: NextApiRequest, res: NextApiResponse) => {
 
   try {
     const { data, error } = await resend.emails.send({
-      from: "Stella <contact@paper-street.fr>", //e-mail de l'expéditeur
+      from: "Stella de SL Code <hello@sl-code.dev>", //e-mail de l'expéditeur
       to: [email], //e-mail récupéré dans le form
       subject: "Ton inscription sur mon blog SL Code !",
       text: "ceci est un champ obligatoire", //le corps du message en texte brut
