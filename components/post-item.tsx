@@ -31,9 +31,7 @@ export function PostItem({
           </h2>
 
           <div className="flex gap-2">
-            {tags?.map((tag) => (
-              <Tag tag={tag} key={tag} />
-            ))}
+            {tags?.map((tag) => <Tag tag={tag} key={tag} />)}
           </div>
         </div>
         <div className="hidden md:flex max-w-[100px]">
@@ -55,7 +53,7 @@ export function PostItem({
           </dd>
         </dl>{" "}
         <Link
-          href={slug}
+          href={"/" + slug}
           className={cn(buttonVariants({ variant: "link" }), "py-0")}
         >
           Read more →
