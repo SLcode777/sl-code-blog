@@ -91,7 +91,7 @@ export default async function PostPage({ params }: PostPageProps) {
             {post.description}
           </p>
         ) : null}
-        <p className="text-muted-foreground">
+        <p className="text-muted-foreground text-justify">
           <MDXContent code={post.body} />
         </p>
       </article>

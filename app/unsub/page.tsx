@@ -1,7 +1,5 @@
 import { cn, getAllTags, sortTagsByCount } from "@/lib/utils";
 import { Metadata } from "next";
-import { posts } from "#site/content";
-import { Tag } from "@/components/tag";
 import Link from "next/link";
 import { buttonVariants } from "@/components/ui/button";
 

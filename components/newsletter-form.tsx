@@ -87,7 +87,7 @@ export function ProfileForm() {
   return (
     <div>
       <hr className="mt-8"></hr>
-      <h2 className="text-2xl titre pt-4 pb-4">Inscris-toi a ma newsletter</h2>
+      <h2 className="text-2xl titre pt-4 pb-4">Inscris-toi pour ne pas rater les prochains articles !</h2>
       <Form {...form}>
         <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
           <FormField
