@@ -33,7 +33,7 @@ const submitHandler = async (req: NextApiRequest, res: NextApiResponse) => {
     }
 
     //ici on utilise la fonction d'ajout de contact à l'audience resend
-    addContactToAudience({
+    await addContactToAudience({
       email: email,
       firstName: firstName,
       unsubscribed: false,
