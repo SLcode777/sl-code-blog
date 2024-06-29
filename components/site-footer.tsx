@@ -20,8 +20,16 @@ export function SiteFooter() {
           rel="noreferrer noopener"
           href={siteConfig.links.linkedin}
         >
-          <span className="sr-only">Twitter</span>
+          <span className="sr-only">Linkedin</span>
           <Icons.linkedin className="h-6 w-6" />
+        </a>
+        <a
+          target="_blank"
+          rel="noreferrer noopener"
+          href={siteConfig.links.twitter}
+        >
+          <span className="sr-only">Twitter</span>
+          <Icons.twitter className="h-6 w-6" />
         </a>
         <a
           target="_blank"

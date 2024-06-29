@@ -44,6 +44,21 @@ export function SiteHeader() {
                 <span className="sr-only">Linkedin</span>
               </div>
             </Link>
+            <Link
+              href={siteConfig.links.twitter}
+              target="_blank"
+              rel="noreferrer noopener"
+            >
+              <div
+                className={cn(
+                  buttonVariants({ variant: "ghost" }),
+                  "w-10 px-0  hidden sm:inline-flex"
+                )}
+              >
+                <Icons.twitter className="h-4 w-4" />
+                <span className="sr-only">X</span>
+              </div>
+            </Link>
             <ModeToggle />
             <MobileNav />
           </nav>

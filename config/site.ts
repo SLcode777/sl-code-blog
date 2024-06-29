@@ -6,6 +6,7 @@ export const siteConfig = {
   links: {
     github: "https://github.com/SLcode777",
     linkedin: "https://www.linkedin.com/in/stella-de-sl-code-419929293/",
+    twitter: "https://x.com/StellaSLcode",
     portfolio: "",
   },
 };
