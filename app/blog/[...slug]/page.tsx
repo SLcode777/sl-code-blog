@@ -7,6 +7,7 @@ import { siteConfig } from "@/config/site";
 import { Tag } from "@/components/tag";
 import PostImage from "@/components/post-image";
 import { ProfileForm } from "@/components/newsletter-form";
+import { formatDate } from "@/lib/utils";
 
 interface PostPageProps {
   params: {
@@ -34,6 +35,7 @@ export async function generateMetadata({
   return {
     title: post.title,
     description: post.description,
+
     authors: { name: siteConfig.author },
     openGraph: {
       title: post.title,
@@ -81,10 +83,11 @@ export default async function PostPage({ params }: PostPageProps) {
           height={480}
         />
         <h1 className="mb-2 titre text-foreground">{post.title}</h1>
-        <div className="flex gap-2 mb-2">
-          {post.tags?.map((tag) => (
-            <Tag tag={tag} key={tag} />
-          ))}
+        <div className="flex flex-row gap-4">
+          <div className="text-sm italic leading-6" >{formatDate(post.date)}</div>
+          <div className="flex gap-2 mb-2">
+            {post.tags?.map((tag) => <Tag tag={tag} key={tag} />)}
+          </div>
         </div>
         {post.description ? (
           <p className="text-xl mt-0 text-muted-foreground border-b pb-6">
