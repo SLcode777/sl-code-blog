@@ -36,7 +36,7 @@ const AffiLinks = [
     title: "NextAI",
     link: "https://dub.sh/nextaifree-slcode",
     description: "Cours gratuits extraits de la formation NextAI",
-    image: "/img/affi-beginjs.webp",
+    image: "/img/affi-nextai.png",
     tag: "gratuit",
   },
   {
@@ -79,7 +79,7 @@ const AffiLinks = [
     title: "NextAI",
     link: "https://dub.sh/nextailp-slcode",
     description: "La formation complète pour intégrer l'IA dans tes projets",
-    image: "/img/affi-beginjs.webp",
+    image: "/img/affi-nextai.png",
     tag: "formation",
   },
   {
@@ -93,7 +93,6 @@ const AffiLinks = [
 ];
 
 export default async function AffiliatePage() {
-
   return (
     <div className="container max-w-4xl py-6 lg:py-10">
       <div className="flex flex-col items-start gap-4 md:flex-row md:justify-between md:gap-8">
@@ -113,7 +112,7 @@ export default async function AffiliatePage() {
         des liens ci-dessous, cela me permettra d&apos;être récompensée et je
         t&apos;en serai éternellement reconnaissante !! 🤩
       </div>
-     
+
       <CodelineCard />
       <h1 className="inline-block titre my-4 text-2xl lg:text-3xl">
         Les Cours Gratuits
