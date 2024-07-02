@@ -1,7 +1,7 @@
 import { cn } from "@/lib/utils";
 import { Metadata } from "next";
 import Link from "next/link";
-import { AffiCard } from "./affi-card";
+import { AffiCard, CodelineCard } from "./affi-card";
 import Image from "next/image";
 
 export const metadata: Metadata = {
@@ -84,7 +84,7 @@ const AffiLinks = [
   },
   {
     title: "NextTailwind",
-    link: "https://dub.sh/tailwind-slcode",
+    link: "https://dub.sh/tailwindlp-slcode",
     description:
       "La formation complète pour maîtriser Tailwind et le design web",
     image: "/img/affi-nextailwind.webp",
@@ -93,17 +93,11 @@ const AffiLinks = [
 ];
 
 export default async function AffiliatePage() {
-  const link = "https://dub.sh/codeline-slcode";
-
-  const handleClick = () => {
-    window.open(link, "_blank");
-  };
 
   return (
     <div className="container max-w-4xl py-6 lg:py-10">
       <div className="flex flex-col items-start gap-4 md:flex-row md:justify-between md:gap-8">
         <div className="flex-1 space-y-4">
-          
           <h1 className="inline-block titre text-4xl lg:text-5xl">
             Liens Cours Gratuits & Formations
           </h1>
@@ -114,28 +108,13 @@ export default async function AffiliatePage() {
         {" "}
         Si tu hésites à te lancer avec les mêmes formations que moi, Melvyn a
         pas mal de cours gratuits pour te donner un avant goût de ses
-        formations. Je t&apos;ai tout regroupé ici ! <br /> <br /> Et si au final ça te
-        plaît et que tu prends l&apos;une de ses formations via un des liens
-        ci-dessous, cela me permettra d&apos;être récompensée et je t&apos;en
-        serai éternellement reconnaissante !! 🤩
+        formations. Je t&apos;ai tout regroupé ici ! <br /> <br /> Et si au
+        final ça te plaît et que tu prends l&apos;une de ses formations via un
+        des liens ci-dessous, cela me permettra d&apos;être récompensée et je
+        t&apos;en serai éternellement reconnaissante !! 🤩
       </div>
-      <h1 className="inline-block titre my-4 text-2xl lg:text-3xl">
-        La Plateforme
-      </h1>
-      <div className="border rounded-lg flex flex-col items-centergap-2 gap-2 pt-2 bg-black/30 mb-8">
-        <h1 className="text-3xl font-bold text-white text-center">Codeline</h1>
-        <p className="italic text-md pl-4 text-center">
-          La meilleure plateforme de formation pour les développeurs !
-        </p>
-        <Image
-          src="/img/codeline.png"
-          alt="affi-beginjs"
-          width={850}
-          height={800}
-          className="hover:cursor-pointer rounded-b-lg"
-        />
-      </div>
-
+     
+      <CodelineCard />
       <h1 className="inline-block titre my-4 text-2xl lg:text-3xl">
         Les Cours Gratuits
       </h1>
