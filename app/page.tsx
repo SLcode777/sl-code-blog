@@ -6,6 +6,7 @@ import Link from "next/link";
 import { PostItem } from "@/components/post-item";
 import PostImage from "@/components/post-image";
 import { ProfileForm } from "@/components/newsletter-form";
+import { ButtonShimmerAffiliate } from "@/components/ui/button-shimmer-affiliate";
 
 export default function Home() {
   const latestPosts = sortPosts(posts).slice(0, 5);
@@ -49,6 +50,7 @@ export default function Home() {
               {" "}
               GitHub
             </Link>
+            <ButtonShimmerAffiliate/>
           </div>
         </div>
       </section>
