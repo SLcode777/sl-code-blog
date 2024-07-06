@@ -1,4 +1,4 @@
-import UseWordle from "@/app/useWordle";
+import UseWordle from "@/app/(the-blog)/useWordle";
 import {
   AlertDialog,
   AlertDialogAction,
