@@ -2,10 +2,10 @@ import { siteConfig } from "@/config/site";
 import { Mail } from "lucide-react";
 import { Icons } from "./icons";
 
-export function SiteFooter() {
+export function FreelanceFooter() {
   return (
     <footer>
-      <div className="mb-6 mt-14 flex flex-row space-x-4 justify-center items-center ">
+      <div className="mb-6 mt-14 flex flex-row space-x-4 justify-center items-center z-50 text-orange-100">
         <div className="mb-3 flex space-x-4"></div>
         <a
           target="_blank"

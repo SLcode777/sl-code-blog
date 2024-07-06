@@ -9,7 +9,7 @@ export function FreelanceHeader() {
   return (
     <header className="z-20 sticky top-0 w-full border-b border-border bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-orange-100/75">
       <div className="container flex h-20 max-w-screen-2xl items-center">
-        <Link href="/" className="mr-6 flex items-center space-x-2">
+        <Link href="/lp" className="mr-6 flex items-center space-x-2">
           <Icons.logo className="h-35 w-20" />
           <span className="font-bold">{siteConfig.name}</span>
         </Link>

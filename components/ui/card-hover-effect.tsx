@@ -2,6 +2,7 @@
 
 import { cn } from "@/utils/cn";
 import { AnimatePresence, motion } from "framer-motion";
+import Image from "next/image";
 import { useState } from "react";
 
 export const HoverEffect = ({
@@ -12,6 +13,7 @@ export const HoverEffect = ({
     title: string;
     description: string;
     link: string;
+    icon: string;
   }[];
   className?: string;
 }) => {
@@ -51,7 +53,10 @@ export const HoverEffect = ({
             )}
           </AnimatePresence>
           <Card>
-            <CardTitle>{item.title}</CardTitle>
+            <div className="flex flex-row justify-between items-center">
+              <CardTitle>{item.title}</CardTitle>
+              <Image src={item.icon} width={36} height={36} alt="icon" />
+            </div>
             <CardDescription>{item.description}</CardDescription>
           </Card>
         </div>
@@ -70,7 +75,7 @@ export const Card = ({
   return (
     <div
       className={cn(
-        "rounded-2xl h-full w-full p-4 overflow-hidden bg-gradient-to-br from-orange-200 via-orange-100 to-orange-50  dark:border-white/[0.2] hover:cursor-pointer relative z-20 ",
+        "rounded-2xl h-full w-full p-4 overflow-hidden bg-orange-200/85  dark:border-white/[0.2] hover:cursor-pointer relative z-20 ",
         className
       )}
     >
@@ -103,7 +108,7 @@ export const CardDescription = ({
   return (
     <p
       className={cn(
-        "mt-8 text-stone-600 tracking-wide leading-relaxed text-sm font-normal",
+        "mt-8 text-stone-900 tracking-wide leading-relaxed text-md font-normal italic ",
         className
       )}
     >

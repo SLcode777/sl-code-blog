@@ -1,6 +1,6 @@
+import { FreelanceFooter } from "@/components/freelance-footer";
 import { FreelanceHeader } from "@/components/freelance-header";
 import { Providers } from "@/components/providers";
-import { SiteFooter } from "@/components/site-footer";
 import { siteConfig } from "@/config/site";
 import { cn } from "@/lib/utils";
 import { Analytics } from "@vercel/analytics/react";
@@ -40,7 +40,7 @@ export default function RootLayout({
           <div className="relative flex min-h-dvh flex-col bg-background  text-stone-700 ">
             <FreelanceHeader />
             <main className="">{children}</main>
-            <SiteFooter />
+            <FreelanceFooter />
           </div>
         </Providers>
         <Analytics />
