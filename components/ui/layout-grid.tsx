@@ -27,11 +27,11 @@ export const LayoutGrid = ({ cards }: { cards: Card[] }) => {
   // };
 
   return (
-    <div className="w-full h-full p-10 grid grid-cols-1 md:grid-cols-3  max-w-7xl mx-auto gap-4 relative">
+    <div className="w-full h-full p-10 grid grid-cols-1 md:grid-cols-3  max-w-7xl mx-auto gap-4 relative ">
       {cards.map((card, i) => (
         <div
           key={i}
-          className={cn(card.className, "hover:cursor-pointer shadow-2xl<")}
+          className={cn(card.className, "hover:cursor-pointer shadow-lg hover:shadow-orange-300 hover:border hover:border-orange-300 border border-transparent rounded-xl")}
         >
           <motion.div
             onClick={() => window.open(card.link, "_blank")}

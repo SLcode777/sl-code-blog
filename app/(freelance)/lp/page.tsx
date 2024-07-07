@@ -34,7 +34,7 @@ export default async function PricingPage() {
             Je veux créer mon site web
           </div>
           <div className="flex flex-row items-center justify-center pt-2">
-            <ChevronDown />
+            <ChevronDown className="animate-bounce" />
           </div>
         </div>
       </section>
@@ -77,7 +77,7 @@ export default async function PricingPage() {
             Avis Clients
           </h1>
           <div className="flex flex-col px-32  justify-center items-center">
-            <div className="flex flex-row px-4  max-w-96 rounded-xl text-center text-balance text-xl italic shadow-lg bg-orange-200/60">
+            <div className="flex flex-row px-4  max-w-96 rounded-xl text-center text-balance text-xl italic shadow-lg bg-orange-200/60 hover:shadow-xl hover:shadow-orange-300">
               <div className="bg-stone-800/60 w-3 my-3 ml-3"></div>
               <div className="py-8">
                 {" "}
@@ -91,8 +91,7 @@ export default async function PricingPage() {
       <section id="contact">
         <div className="bg-white h-fit rounded-t-3xl relative pb-40 -mt-20 ">
           <h1 className="py-16 px-32 titre text-stone-900 text-6xl">Contact</h1>
-          <div className="flex flex-col px-32  justify-center items-center">
-          </div>
+          <div className="flex flex-col px-32  justify-center items-center"></div>
         </div>
       </section>
     </>

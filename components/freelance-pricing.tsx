@@ -4,8 +4,8 @@ import Image from "next/image";
 export const Pricing = () => {
   return (
     <>
-      <div className="flex flex-row w-full h-max  max-w-4xl items-center">
-        <div className="flex flex-col gap-4 w-1/3  items-center bg-white/90  border border-3 border-stone-200  rounded-xl  pb-10 ">
+      <div className="flex flex-row w-full h-max  max-w-4xl items-center gap-1">
+        <div className="flex flex-col gap-4 w-1/3  items-center bg-white/90  border border-3 border-stone-200  rounded-xl  pb-10 hover:-translate-y-3 hover:translate-z-50 hover:shadow-stone-600/75 hover:shadow-xl ">
           <div className="bg-stone-200 text-black font-semibold  rounded-t-xl tracking-wider py-0.5 w-full text-center mb-10">
             MINIMALISTE
           </div>
@@ -51,7 +51,7 @@ export const Pricing = () => {
             </button>
           </div>
         </div>
-        <div className="flex flex-col gap-4 w-1/3  items-center bg-white/90   rounded-xl pb-10 h-full z-10 shadow-stone-600/75 shadow-md">
+        <div className="flex flex-col gap-4 w-1/3  items-center bg-white/90   rounded-xl pb-10 h-full z-10 hover:shadow-stone-600/75 shadow-xl hover:-translate-y-3">
           <div className="bg-stone-900 text-white font-semibold  rounded-t-xl tracking-wider py-0.5 w-full text-center mb-10">
             LE + POPULAIRE
           </div>
@@ -97,7 +97,7 @@ export const Pricing = () => {
             </button>
           </div>
         </div>
-        <div className="flex flex-col gap-4 w-1/3  items-center bg-white/90  border border-3 border-stone-200  rounded-xl  pb-10 h-[660px]">
+        <div className="flex flex-col gap-4 w-1/3  items-center bg-white/90  border border-3 border-stone-200  rounded-xl  pb-10 h-[660px] hover:-translate-y-3 hover:translate-z-50 hover:shadow-stone-600/75 hover:shadow-xl">
           <div className="bg-yellow-500/60 text-black font-semibold  rounded-t-xl tracking-wider py-0.5 w-full text-center mb-10">
             ALL INCLUSIVE
           </div>

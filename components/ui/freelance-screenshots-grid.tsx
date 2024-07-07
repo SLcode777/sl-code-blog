@@ -35,10 +35,10 @@ const SkeletonTwo = () => {
 const SkeletonThree = () => {
   return (
     <div>
-      <p className="font-bold text-4xl text-white">Movie Finder</p>
+      <p className="font-bold text-4xl text-white">My Amazing Timers</p>
       <p className="font-normal text-base text-white"></p>
       <p className="font-normal text-base my-4 max-w-lg text-neutral-200">
-        Une bibliothèque de films pour toute la famille.
+        Une application de timers super stylée.
       </p>
     </div>
   );
@@ -75,7 +75,7 @@ const cards = [
     content: <SkeletonThree />,
     className: "col-span-1",
     thumbnail: "/img/screenshot3.webp",
-    link: "https://my-movie-finder-two.vercel.app/",
+    link: "https://timer-app-challenge.vercel.app/",
   },
   {
     id: 4,
