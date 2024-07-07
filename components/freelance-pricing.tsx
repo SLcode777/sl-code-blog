@@ -46,7 +46,7 @@ export const Pricing = () => {
             </div>
           </div>
           <div className="px-6 w-full mt-2">
-            <button className="bg-stone-200 px-4 py-2 font-medium rounded-sm w-full">
+            <button className="bg-stone-200 px-4 py-2 font-medium rounded-full w-full">
               Demander un devis
             </button>
           </div>
@@ -92,7 +92,7 @@ export const Pricing = () => {
             </div>
           </div>
           <div className="px-6 w-full">
-            <button className="bg-stone-900 text-white font-medium px-4 py-2 rounded-sm w-full">
+            <button className="bg-stone-900 text-white font-medium px-4 py-2 rounded-full w-full">
               Demander un devis
             </button>
           </div>
@@ -118,7 +118,7 @@ export const Pricing = () => {
             Sur devis en fonction du nombre de pages
           </div>
           <div className="px-6 w-full">
-            <button className="bg-yellow-500/60 px-4 py-2 font-medium rounded-sm w-full mt-44">
+            <button className="bg-yellow-500/60 px-4 py-2 font-medium rounded-full w-full mt-44">
               Demander un devis
             </button>
           </div>

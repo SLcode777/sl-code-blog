@@ -114,3 +114,14 @@
     transform: scale(1);
   }
 }
+
+/* // for the aceternity tab component (optional) */
+/* .no-visible-scrollbar {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  -webkit-overflow-scrolling: touch;
+}
+
+.no-visible-scrollbar::-webkit-scrollbar {
+  display: none;
+} */

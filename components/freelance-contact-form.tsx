@@ -92,12 +92,17 @@ export function ContactForm() {
                 render={({ field }) => (
                   <FormItem>
                     <FormControl>
-                      <Input
+                      <textarea
+                        className="bg-white w-full border-none rounded-2xl font-semibold h-48 text-md text-wrap placeholder:text-stone-900 placeholder:text-lg placeholder:text-wrap placeholder-top  p-4 leading-normal "
+                        placeholder="Laissez-moi vos coordonnées et je vous recontacte rapidement pour discuter de votre projet !"
+                        {...field}
+                      />
+                      {/* <Input
                         type="textarea"
                         className="bg-white border-none rounded-2xl font-semibold h-48 text-md text-wrap placeholder:text-stone-900 placeholder:text-lg placeholder:text-wrap placeholder-top  p-4 leading-normal "
                         placeholder="Laissez-moi vos coordonnées et je vous recontacte rapidement pour discuter de votre projet !"
                         {...field}
-                      />
+                      /> */}
                     </FormControl>
                     <FormMessage />
                   </FormItem>

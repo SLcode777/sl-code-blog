@@ -1,7 +1,7 @@
 import { ContactForm } from "@/components/freelance-contact-form";
 import { Pricing } from "@/components/freelance-pricing";
+import { TabsDemo } from "@/components/freelance-projects";
 import { ServicesCards } from "@/components/freelance-services";
-import { LayoutGridDemo } from "@/components/ui/freelance-screenshots-grid";
 import { ChevronDown } from "lucide-react";
 import { Metadata } from "next";
 import Image from "next/image";
@@ -46,7 +46,7 @@ export default async function PricingPage() {
           </h1>
           <div className="flex flex-col px-32  justify-center items-center ">
             <ServicesCards />
-            <div className="flex flex-col justify-center items-center rounded-xl overflow-hidden border w-fit mb-24">
+            <div className="flex flex-col justify-center items-center rounded-xl overflow-hidden  w-fit mb-24">
               <Image
                 src="/img/webdesign.webp"
                 alt="services"
@@ -65,10 +65,13 @@ export default async function PricingPage() {
           </div>
         </div>
       </section>
-      <section id="screen">
+      <section id="projets" className="pb-20">
         <div className="bg-stone-900 h-fit rounded-t-3xl relative pb-20 -mt-10">
+          <h1 className="pt-16 px-32 titre text-orange-200 text-6xl">
+            Realisations
+          </h1>
           <div className="flex flex-col px-32  justify-start">
-            <LayoutGridDemo />
+            <TabsDemo />
           </div>
         </div>
       </section>
@@ -80,16 +83,17 @@ export default async function PricingPage() {
           <div className="flex flex-col px-32  justify-center items-center">
             <div
               id="card"
-              className="group flex flex-row px-4  max-w-96 rounded-xl text-center text-balance text-xl italic shadow-lg bg-orange-200/60 hover:shadow-xl hover:shadow-orange-300"
+              className="group flex flex-row px-4  max-w-96 rounded-xl text-center text-balance text-xl italic shadow-lg bg-orange-200/60 hover:shadow-xl hover:shadow-orange-300 mb-16"
             >
               <div
                 id="quote-line"
                 className="bg-stone-800/60  w-3 my-3 ml-3 group-hover:bg-orange-400"
               ></div>
-              <div className="py-8">
+              <div className="py-8 text-start pl-4 ">
                 {" "}
                 Si tu fais appel à moi, tu seras mon premier client, mais pas
-                mon premier projet ! :){" "}
+                mon premier projet ! :) <br /> Je ferai tout mon possible pour
+                que tu sois satisfait(e) de ma prestation !
               </div>
             </div>
           </div>
