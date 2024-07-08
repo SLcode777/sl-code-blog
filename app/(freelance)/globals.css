@@ -86,8 +86,6 @@
   font-family: "Norwester", sans-serif;
 }
 
-
-
 @keyframes pop {
   0% {
     transform: scale(1);
@@ -110,3 +108,30 @@
 .no-visible-scrollbar::-webkit-scrollbar {
   display: none;
 } */
+
+/* Style de base des liens */
+.link-underline {
+  position: relative;
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Création de la ligne de soulignement */
+.link-underline::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  transform: scaleX(0);
+  height: 1px;
+  bottom: 0;
+  left: 0;
+  background-color: currentColor;
+  transform-origin: bottom right;
+  transition: transform 0.25s ease-out;
+}
+
+/* Animation de la ligne de soulignement au survol */
+.link-underline:hover::after {
+  transform: scaleX(1);
+  transform-origin: bottom left;
+}

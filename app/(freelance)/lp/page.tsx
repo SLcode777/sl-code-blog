@@ -2,6 +2,8 @@ import { ContactForm } from "@/components/freelance-contact-form";
 import { Pricing } from "@/components/freelance-pricing";
 import { TabsDemo } from "@/components/freelance-projects";
 import { ServicesCards } from "@/components/freelance-services";
+import { ArrowBackToTop } from "@/components/ui/arrow-backtop";
+import { ButtonGoToServices } from "@/components/ui/button-freelance-goto";
 import { ChevronDown } from "lucide-react";
 import { Metadata } from "next";
 import Image from "next/image";
@@ -31,9 +33,7 @@ export default async function PricingPage() {
       >
         <div className="z-20 h-5/6 "></div>
         <div className="z-20 h-1/6 ">
-          <div className="bg-stone-900 rounded-full px-8 py-2 text-orange-100 font-medium mt-20 select-none">
-            Je veux créer mon site web
-          </div>
+          <ButtonGoToServices />
           <div className="flex flex-row items-center justify-center pt-2">
             <ChevronDown className="animate-bounce" />
           </div>
@@ -107,6 +107,7 @@ export default async function PricingPage() {
           </div>
         </div>
       </section>
+      <ArrowBackToTop />
     </>
   );
 }

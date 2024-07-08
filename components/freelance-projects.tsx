@@ -10,13 +10,19 @@ export function TabsDemo() {
       value: "page de vente",
       content: (
         <div className="w-full overflow-hidden relative h-full rounded-2xl text-xl md:text-4xl font-bold text-white flex justify-center items-center ">
-          <Image
-            className="rounded-2xl"
-            src="/img/sell-mockup.webp"
-            alt="banner"
-            width={2560}
-            height={1440}
-          />
+          <a
+            target="_blank"
+            rel="noreferrer noopener"
+            href="https://spikes-hackaton-lp1.vercel.app/"
+          >
+            <Image
+              className="rounded-2xl"
+              src="/img/sell-mockup.webp"
+              alt="banner"
+              width={2560}
+              height={1440}
+            />
+          </a>
         </div>
       ),
     },
@@ -25,13 +31,19 @@ export function TabsDemo() {
       value: "application de timers",
       content: (
         <div className="w-full overflow-hidden relative h-full rounded-2xl text-xl md:text-4xl font-bold text-white ">
-          <Image
-            className="rounded-2xl"
-            src="/img/timer-mockup.webp"
-            alt="banner"
-            width={2560}
-            height={1440}
-          />
+          <a
+            target="_blank"
+            rel="noreferrer noopener"
+            href="https://timer-app-challenge.vercel.app/"
+          >
+            <Image
+              className="rounded-2xl"
+              src="/img/timer-mockup.webp"
+              alt="banner"
+              width={2560}
+              height={1440}
+            />
+          </a>
         </div>
       ),
     },
@@ -40,13 +52,19 @@ export function TabsDemo() {
       value: "blog",
       content: (
         <div className="w-full overflow-hidden relative h-full rounded-2xl  text-xl md:text-4xl font-bold text-white flex justify-center items-center  ">
-          <Image
-            className="rounded-2xl"
-            src="/img/blog-mockup.webp"
-            alt="banner"
-            width={2560}
-            height={1440}
-          />
+          <a
+            target="_blank"
+            rel="noreferrer noopener"
+            href="https://www.sl-code.dev/"
+          >
+            <Image
+              className="rounded-2xl"
+              src="/img/blog-mockup.webp"
+              alt="banner"
+              width={2560}
+              height={1440}
+            />
+          </a>
         </div>
       ),
     },

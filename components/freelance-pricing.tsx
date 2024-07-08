@@ -1,5 +1,20 @@
+"use client";
+
 import { CircleCheck } from "lucide-react";
 import Image from "next/image";
+
+const scrollToContactSection = () => {
+  const targetElement = document.getElementById("contact");
+  if (targetElement) {
+    const offset = 50;
+    const elementPosition = targetElement.offsetTop - offset;
+
+    window.scrollTo({
+      top: elementPosition,
+      behavior: "smooth",
+    });
+  }
+};
 
 export const Pricing = () => {
   return (
@@ -46,7 +61,10 @@ export const Pricing = () => {
             </div>
           </div>
           <div className="px-6 w-full mt-2">
-            <button className="bg-stone-200 px-4 py-2 font-medium rounded-full w-full">
+            <button
+              onClick={scrollToContactSection}
+              className="bg-stone-200 px-4 py-2 font-medium rounded-full w-full"
+            >
               Demander un devis
             </button>
           </div>
@@ -92,7 +110,10 @@ export const Pricing = () => {
             </div>
           </div>
           <div className="px-6 w-full">
-            <button className="bg-stone-900 text-white font-medium px-4 py-2 rounded-full w-full">
+            <button
+              onClick={scrollToContactSection}
+              className="bg-stone-900 text-white font-medium px-4 py-2 rounded-full w-full"
+            >
               Demander un devis
             </button>
           </div>
@@ -118,7 +139,10 @@ export const Pricing = () => {
             Sur devis en fonction du nombre de pages
           </div>
           <div className="px-6 w-full">
-            <button className="bg-yellow-500/60 px-4 py-2 font-medium rounded-full w-full mt-44">
+            <button
+              onClick={scrollToContactSection}
+              className="bg-yellow-500/60 px-4 py-2 font-medium rounded-full w-full mt-44"
+            >
               Demander un devis
             </button>
           </div>

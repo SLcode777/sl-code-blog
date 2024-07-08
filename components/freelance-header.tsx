@@ -1,11 +1,54 @@
+"use client";
+
 import { siteConfig } from "@/config/site";
 import { cn } from "@/lib/utils";
 import Link from "next/link";
+import { useEffect } from "react";
 import { Icons } from "./icons";
 import { MobileNav } from "./mobile-nav";
 import { buttonVariants } from "./ui/button";
 
 export function FreelanceHeader() {
+  useEffect(() => {
+    const handleSmoothScroll = (event: React.MouseEvent<HTMLAnchorElement>) => {
+      event.preventDefault();
+      const href = event.currentTarget.getAttribute("href");
+      if (href) {
+        const targetId = href.slice(1);
+        const targetElement = document.getElementById(targetId);
+
+        if (targetElement) {
+          const offset = 50;
+          const elementPosition = targetElement.offsetTop - offset;
+
+          window.scrollTo({
+            top: elementPosition,
+            behavior: "smooth",
+          });
+        }
+      }
+    };
+
+    const links = document.querySelectorAll('a[href^="#"]');
+    links.forEach((link) => {
+      link.addEventListener("click", (event) =>
+        handleSmoothScroll(
+          event as unknown as React.MouseEvent<HTMLAnchorElement>
+        )
+      );
+    });
+
+    return () => {
+      links.forEach((link) => {
+        link.removeEventListener("click", (event) =>
+          handleSmoothScroll(
+            event as unknown as React.MouseEvent<HTMLAnchorElement>
+          )
+        );
+      });
+    };
+  }, []);
+
   return (
     <header className="z-20 sticky top-0 w-full border-b border-stone-900 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-orange-100/75">
       <div className="container flex flex-row h-20 max-w-screen-2xl mx-auto items-center justify-between">
@@ -19,19 +62,31 @@ export function FreelanceHeader() {
           </Link>
         </div>
         <div className="flex flex-row w-full ml-32 justify-start  space-x-10">
-          <a className="tracking-wider" href="#services">
+          <a
+            className="tracking-wider font-light link-underline"
+            href="#services"
+          >
             Services
           </a>
-          <a className="tracking-wider" href="#tarifs">
+          <a
+            className="tracking-wider font-light link-underline"
+            href="#tarifs"
+          >
             Tarifs
           </a>
-          <a className="tracking-wider" href="#projets">
+          <a
+            className="tracking-wider font-light link-underline"
+            href="#projets"
+          >
             Réalisations
           </a>
-          <a className="tracking-wider" href="#avis">
+          <a className="tracking-wider font-light link-underline" href="#avis">
             Avis clients
           </a>
-          <a className="tracking-wider" href="#contact">
+          <a
+            className="tracking-wider font-light link-underline"
+            href="#contact"
+          >
             Contact
           </a>
         </div>
