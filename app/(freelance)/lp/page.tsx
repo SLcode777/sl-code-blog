@@ -82,7 +82,7 @@ export default async function PricingPage() {
           </h1>
           <div className="flex flex-col px-32  justify-center items-center">
             <div
-              id="card"
+              id="avis"
               className="group flex flex-row px-4 border border-stone-300 hover:border-transparent rounded-xl text-center text-balance text-xl italic  bg-transparent hover:bg-white hover:shadow-xl  mb-16"
             >
               <div

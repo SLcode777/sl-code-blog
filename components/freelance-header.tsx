@@ -8,16 +8,35 @@ import { buttonVariants } from "./ui/button";
 export function FreelanceHeader() {
   return (
     <header className="z-20 sticky top-0 w-full border-b border-stone-900 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-orange-100/75">
-      <div className="container flex h-20 max-w-screen-2xl items-center">
-        <Link
-          href="/lp"
-          className="mr-6 flex items-center space-x-2 text-stone-900"
-        >
-          <Icons.logo className="h-35 w-20" />
-          <span className="font-bold ">{siteConfig.name}</span>
-        </Link>
+      <div className="container flex flex-row h-20 max-w-screen-2xl mx-auto items-center justify-between">
+        <div>
+          <Link
+            href="/lp"
+            className="mr-6 flex items-center space-x-2 text-stone-900"
+          >
+            <Icons.logo className="h-35 w-20" />
+            <span className="font-bold ">{siteConfig.name}</span>
+          </Link>
+        </div>
+        <div className="flex flex-row w-full ml-32 justify-start  space-x-10">
+          <a className="tracking-wider" href="#services">
+            Services
+          </a>
+          <a className="tracking-wider" href="#tarifs">
+            Tarifs
+          </a>
+          <a className="tracking-wider" href="#projets">
+            Réalisations
+          </a>
+          <a className="tracking-wider" href="#avis">
+            Avis clients
+          </a>
+          <a className="tracking-wider" href="#contact">
+            Contact
+          </a>
+        </div>
 
-        <div className="flex flex-1 items-center justify-end space-x-2">
+        <div className="flex flex-row items-center justify-end space-x-2">
           <nav className="flex items-center">
             <Link
               href={siteConfig.links.github}
