@@ -26,7 +26,7 @@ export function FreelanceHeader() {
             >
               <div
                 className={cn(
-                  buttonVariants({ variant: "ghost" }),
+                  buttonVariants({ variant: "freelance" }),
                   "w-10 px-0 hidden sm:inline-flex "
                 )}
               >
@@ -41,7 +41,7 @@ export function FreelanceHeader() {
             >
               <div
                 className={cn(
-                  buttonVariants({ variant: "ghost" }),
+                  buttonVariants({ variant: "freelance" }),
                   "w-10 px-0  hidden sm:inline-flex"
                 )}
               >
@@ -56,7 +56,7 @@ export function FreelanceHeader() {
             >
               <div
                 className={cn(
-                  buttonVariants({ variant: "ghost" }),
+                  buttonVariants({ variant: "freelance" }),
                   "w-10 px-0  hidden sm:inline-flex"
                 )}
               >

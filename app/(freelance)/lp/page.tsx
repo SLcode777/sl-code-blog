@@ -83,17 +83,17 @@ export default async function PricingPage() {
           <div className="flex flex-col px-32  justify-center items-center">
             <div
               id="card"
-              className="group flex flex-row px-4  max-w-96 rounded-xl text-center text-balance text-xl italic shadow-lg bg-orange-200/60 hover:shadow-xl hover:shadow-orange-300 mb-16"
+              className="group flex flex-row px-4 border border-stone-300 hover:border-transparent rounded-xl text-center text-balance text-xl italic  bg-transparent hover:bg-white hover:shadow-xl  mb-16"
             >
               <div
                 id="quote-line"
-                className="bg-stone-800/60  w-3 my-3 ml-3 group-hover:bg-orange-400"
+                className="bg-stone-400  w-3 my-3 ml-3 group-hover:bg-orange-200"
               ></div>
-              <div className="py-8 text-start pl-4 ">
+              <div className="py-8 text-start  pl-4 ">
                 {" "}
-                Si tu fais appel à moi, tu seras mon premier client, mais pas
-                mon premier projet ! :) <br /> Je ferai tout mon possible pour
-                que tu sois satisfait(e) de ma prestation !
+                Si vous faites appel à moi, vous serez mon premier client, mais
+                pas mon premier projet ! :) <br /> Je ferai tout mon possible
+                pour que vous soyez satisfait(e) de ma prestation !{" "}
               </div>
             </div>
           </div>

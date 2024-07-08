@@ -86,22 +86,7 @@
   font-family: "Norwester", sans-serif;
 }
 
-.star-cursor {
-  cursor: url("/star-yellow.cur"), auto;
-}
 
-.correct {
-  animation: pop 0.5s ease;
-  background-color: #65a30d; /* Vert pour les lettres correctement placées */
-}
-
-.present {
-  background-color: #ca8a04; /* Jaune pour les lettres présentes mais mal placées */
-}
-
-.incorrect {
-  background-color: #57534e; /* Gris pour les lettres incorrectes */
-}
 
 @keyframes pop {
   0% {

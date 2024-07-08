@@ -5,15 +5,15 @@ import { Icons } from "./icons";
 export function FreelanceFooter() {
   return (
     <footer>
-      <div className="mb-6 mt-14 flex flex-row space-x-4 justify-center items-center z-50 text-orange-100">
-        <div className="mb-3 flex space-x-4"></div>
+      <div className=" relative  bottom-0 left-0 right-0 flex flex-row gap-x-4 h-48 z-50 justify-center bg-stone-900 items-center  text-orange-100 ">
+        <div className=" flex space-x-4"></div>
         <a
           target="_blank"
           rel="noreferrer noopener"
           href="mailto:hello@sl-code.dev"
         >
           <span className="sr-only">Mail</span>
-          <Mail className="h-6 w-6" />
+          <Mail className="h-6 w-6  hover:text-orange-700" />
         </a>
         <a
           target="_blank"
@@ -21,7 +21,7 @@ export function FreelanceFooter() {
           href={siteConfig.links.linkedin}
         >
           <span className="sr-only">Linkedin</span>
-          <Icons.linkedin className="h-6 w-6" />
+          <Icons.linkedin className="h-6 w-6 hover:text-orange-700" />
         </a>
         <a
           target="_blank"
@@ -29,7 +29,7 @@ export function FreelanceFooter() {
           href={siteConfig.links.twitter}
         >
           <span className="sr-only">Twitter</span>
-          <Icons.twitter className="h-6 w-6" />
+          <Icons.twitter className="h-6 w-6 hover:text-orange-700" />
         </a>
         <a
           target="_blank"
@@ -37,7 +37,7 @@ export function FreelanceFooter() {
           href={siteConfig.links.github}
         >
           <span className="sr-only">GitHub</span>
-          <Icons.gitHub className="h-6 w-6" />
+          <Icons.gitHub className="h-6 w-6  hover:text-orange-700" />
         </a>
       </div>
       <div className="hidden mb-2 space-x-2 justify-center text-sm text-muted-foreground">

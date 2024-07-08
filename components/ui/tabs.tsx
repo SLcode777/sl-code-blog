@@ -62,13 +62,13 @@ export const Tabs = ({
                 layoutId="clickedbutton"
                 transition={{ type: "spring", bounce: 0.3, duration: 0.6 }}
                 className={cn(
-                  "absolute inset-0 bg-orange-800 rounded-full ",
+                  "absolute inset-0 bg-gradient-to-b from-orange-700 via-transparent to-transparent  border-y border-orange-800  rounded-2xl -mb-2",
                   activeTabClassName
                 )}
               />
             )}
 
-            <span className="relative block text-orange-100 text-2xl font-semibold">
+            <span className="relative block text-orange-50 text-2xl font-semibold">
               {tab.title}
             </span>
           </button>
@@ -78,7 +78,7 @@ export const Tabs = ({
         tabs={tabs}
         active={active}
         key={active.value}
-        hovering={hovering}
+        hovering={true}
         className={cn("mt-32", contentClassName)}
       />
     </>
@@ -122,3 +122,8 @@ export const FadeInDiv = ({
     </div>
   );
 };
+
+// tab effet 3D orange
+// "absolute inset-0 bg-gradient-to-b from-orange-300 via-orange-800 to-stone-900  border-t border-orange-800  rounded-full -mb-2"
+
+

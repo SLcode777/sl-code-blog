@@ -1,5 +1,3 @@
-import { Icon } from "next/dist/lib/metadata/types/metadata-types";
-
 type IconProps = React.HTMLAttributes<SVGElement>;
 
 export const Icons = {
@@ -62,6 +60,7 @@ export const Icons = {
     <svg
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 50 50"
+      {...props}
       width="23px"
       height="23px"
     >
