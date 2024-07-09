@@ -1,5 +1,6 @@
 "use client";
 
+
 export const ButtonShimmerAffiliate = () => {
   return (
     <button

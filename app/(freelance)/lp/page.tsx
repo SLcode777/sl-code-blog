@@ -3,11 +3,10 @@ import { Pricing } from "@/components/freelance-pricing";
 import { TabsDemo } from "@/components/freelance-projects";
 import { ServicesCards } from "@/components/freelance-services";
 import { ArrowBackToTop } from "@/components/ui/arrow-backtop";
-import { ButtonGoToServices } from "@/components/ui/button-freelance-goto";
+import { ButtonShimmerFreelance } from "@/components/ui/button-shimmer-freelance";
 import { ChevronDown } from "lucide-react";
 import { Metadata } from "next";
 import Image from "next/image";
-
 export const metadata: Metadata = {
   title: "SL Code | Création de sites web",
   description: "SL Code | Création de sites web à Martigues",
@@ -33,8 +32,8 @@ export default async function PricingPage() {
       >
         <div className="z-20 h-5/6 "></div>
         <div className="z-20 h-1/6 ">
-          <ButtonGoToServices />
-          <div className="flex flex-row items-center justify-center pt-2">
+          <div className="flex flex-col items-center justify-center mt-20 space-y-2">
+          <ButtonShimmerFreelance />
             <ChevronDown className="animate-bounce" />
           </div>
         </div>

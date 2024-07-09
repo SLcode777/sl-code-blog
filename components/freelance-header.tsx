@@ -61,7 +61,7 @@ export function FreelanceHeader() {
             <span className="font-bold ">{siteConfig.name}</span>
           </Link>
         </div>
-        <div className="flex flex-row w-full ml-32 justify-start  space-x-10">
+        <div className="flex flex-row w-full justify-center  space-x-10">
           <a
             className="tracking-wider font-light link-underline"
             href="#services"
@@ -104,7 +104,7 @@ export function FreelanceHeader() {
                   "w-10 px-0 hidden sm:inline-flex "
                 )}
               >
-                <Icons.gitHub className="h-4 w-4" />
+                <Icons.gitHub className="h-6 w-6" />
                 <span className="sr-only">GitHub</span>
               </div>
             </Link>
@@ -119,7 +119,7 @@ export function FreelanceHeader() {
                   "w-10 px-0  hidden sm:inline-flex"
                 )}
               >
-                <Icons.linkedin className="h-4 w-4" />
+                <Icons.linkedin className="h-6 w-6" />
                 <span className="sr-only">Linkedin</span>
               </div>
             </Link>
@@ -134,7 +134,7 @@ export function FreelanceHeader() {
                   "w-10 px-0  hidden sm:inline-flex"
                 )}
               >
-                <Icons.twitter className="h-4 w-4 " />
+                <Icons.twitter className="h-6 w-6 " />
                 <span className="sr-only">X</span>
               </div>
             </Link>

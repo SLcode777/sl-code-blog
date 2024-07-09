@@ -2,7 +2,7 @@ import { HoverEffect } from "./ui/card-hover-effect";
 
 export function ServicesCards() {
   return (
-    <div className=" px-8 z-10 select-none">
+    <div className=" px-8 z-10 select-none ">
       <HoverEffect items={projects} />
     </div>
   );

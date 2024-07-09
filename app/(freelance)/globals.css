@@ -135,3 +135,39 @@
   transform: scaleX(1);
   transform-origin: bottom left;
 }
+
+/* Bouton du form de contact */
+.button_slide {
+  color: #1c1917;
+  background-color: #fed7aa;
+  /* border: 2px solid rgb(254, 215, 170); */
+  border-radius: 9999px;
+  padding: 8px 0px;
+  width: 100%;
+  display: inline-block;
+  font-size: 16px;
+  font-weight: 600;
+  letter-spacing: 0.025em;
+  cursor: pointer;
+  box-shadow: inset 0 0 0 0 #fed7aa;
+  -webkit-transition: ease-out 0.4s;
+  -moz-transition: ease-out 0.4s;
+  transition: ease-out 0.4s;
+}
+
+.slide_down:hover {
+  box-shadow: inset 0 100px 0 0 #c2410c;
+}
+
+.slide_right:hover {
+  box-shadow: inset 400px 0 0 0 #c2410c;
+  color: #ffedd5;
+}
+
+.slide_left:hover {
+  box-shadow: inset 0 0 0 50px #c2410c;
+}
+
+.slide_diagonal:hover {
+  box-shadow: inset 400px 50px 0 0 #c2410c;
+}

@@ -108,10 +108,7 @@ export function ContactForm() {
                   </FormItem>
                 )}
               ></FormField>
-              <button
-                type="submit"
-                className="bg-orange-200 text-stone-900 font-semibold tracking-wide py-2 rounded-full w-full hover:bg-orange-500"
-              >
+              <button type="submit" className="button_slide slide_right ">
                 Envoyer
               </button>
             </form>
