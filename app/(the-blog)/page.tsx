@@ -17,15 +17,15 @@ export default function Home() {
           <h1 className="titre pb-8 text-3xl sm:text-5xl md:text-6xl lg:text-7xl text-balance">
             La comptable qui voulait devenir developpeuse
           </h1>
-          <p className="max-w-[42rem] mx-auto text-muted-foreground sm:text-xl">
+          <p className="max-w-[42rem] mx-auto text-muted-foreground text-balance sm:text-xl">
             Sois le témoin de l&apos;odyssée palpitante d&apos;une comptable qui
-            se lance le défi de devenir développeuse Freelance.
+            se lance le défi de devenir développeuse.
           </p>
-          <p className="max-w-[42rem] mx-auto text-muted-foreground sm:text-xl">
+          <p className="max-w-[42rem] mx-auto text-muted-foreground text-balance sm:text-xl">
             Suis mes aventures, depuis l&apos;apprentissage des langages et des
             outils, jusqu&apos;à la création de ma première application, en
             passant par tous les questionnements qui vont se présenter à moi sur
-            le chemin de l&apos;entrepreneuriat.
+            le chemin de la reconversion.
           </p>
 
           <div className="pt-8 flex flex-col gap-4 justify-center sm:flex-row">

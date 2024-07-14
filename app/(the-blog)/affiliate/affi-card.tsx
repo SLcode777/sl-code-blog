@@ -37,11 +37,11 @@ export const AffiCard: React.FC<AffiCardProps> = ({
           className=" rounded-b-lg"
         />
         {tag === "gratuit" ? (
-          <div className="ml-4 mb-2 text-sm font-bold bg-lime-500 max-w-fit px-2 rounded-md text-black">
+          <div className="ml-4 mb-2 text-sm tracking-wide bg-lime-500/30 max-w-fit px-2 rounded-md text-lime-300">
             Cours gratuits
           </div>
         ) : (
-          <div className="ml-4 mb-2 text-sm font-medium bg-yellow-500 max-w-fit px-2 rounded-md text-black">
+          <div className="ml-4 mb-2 text-sm font-medium tracking-wide bg-yellow-500/30 max-w-fit px-2 rounded-md text-yellow-300">
             Formation complète
           </div>
         )}
