@@ -1,12 +1,12 @@
+import { posts } from "#site/content";
+import { ProfileForm } from "@/components/newsletter-form";
+import PostImage from "@/components/post-image";
+import { PostItem } from "@/components/post-item";
 import { buttonVariants } from "@/components/ui/button";
+import { ButtonShimmerAffiliate } from "@/components/ui/button-shimmer-affiliate";
 import { siteConfig } from "@/config/site";
 import { cn, sortPosts } from "@/lib/utils";
-import { posts } from "#site/content";
 import Link from "next/link";
-import { PostItem } from "@/components/post-item";
-import PostImage from "@/components/post-image";
-import { ProfileForm } from "@/components/newsletter-form";
-import { ButtonShimmerAffiliate } from "@/components/ui/button-shimmer-affiliate";
 
 export default function Home() {
   const latestPosts = sortPosts(posts).slice(0, 5);
@@ -20,12 +20,6 @@ export default function Home() {
           <p className="max-w-[42rem] mx-auto text-muted-foreground text-balance sm:text-xl">
             Sois le témoin de l&apos;odyssée palpitante d&apos;une comptable qui
             se lance le défi de devenir développeuse.
-          </p>
-          <p className="max-w-[42rem] mx-auto text-muted-foreground text-balance sm:text-xl">
-            Suis mes aventures, depuis l&apos;apprentissage des langages et des
-            outils, jusqu&apos;à la création de ma première application, en
-            passant par tous les questionnements qui vont se présenter à moi sur
-            le chemin de la reconversion.
           </p>
 
           <div className="pt-8 flex flex-col gap-4 justify-center sm:flex-row">
@@ -50,7 +44,7 @@ export default function Home() {
               {" "}
               GitHub
             </Link>
-            <ButtonShimmerAffiliate/>
+            <ButtonShimmerAffiliate />
           </div>
         </div>
       </section>
