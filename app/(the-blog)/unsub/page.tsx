@@ -31,6 +31,6 @@ export default async function UnsubPage() {
       >
         Me désabonner
       </Link>
-    </div>
+          </div>
   );
 }
