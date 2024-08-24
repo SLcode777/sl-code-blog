@@ -1,13 +1,13 @@
 import { posts } from "#site/content";
 import { MDXContent } from "@/components/mdx-components";
-import { notFound } from "next/navigation";
+import { ProfileForm } from "@/components/newsletter-form";
+import PostImage from "@/components/post-image";
+import { Tag } from "@/components/tag";
+import { siteConfig } from "@/config/site";
+import { formatDate } from "@/lib/utils";
 import "@/styles/mdx.css";
 import { Metadata } from "next";
-import { siteConfig } from "@/config/site";
-import { Tag } from "@/components/tag";
-import PostImage from "@/components/post-image";
-import { ProfileForm } from "@/components/newsletter-form";
-import { formatDate } from "@/lib/utils";
+import { notFound } from "next/navigation";
 
 interface PostPageProps {
   params: {
@@ -84,7 +84,9 @@ export default async function PostPage({ params }: PostPageProps) {
         />
         <h1 className="mb-2 titre text-foreground">{post.title}</h1>
         <div className="flex flex-row gap-4">
-          <div className="text-sm italic leading-6" >{formatDate(post.date)}</div>
+          <div className="text-sm italic leading-6">
+            {formatDate(post.date)}
+          </div>
           <div className="flex gap-2 mb-2">
             {post.tags?.map((tag) => <Tag tag={tag} key={tag} />)}
           </div>

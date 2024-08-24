@@ -9,7 +9,8 @@ import { cn, sortPosts } from "@/lib/utils";
 import Link from "next/link";
 
 export default function Home() {
-  const latestPosts = sortPosts(posts).slice(0, 5);
+  const publishedPosts = posts.filter((post) => post.published);
+  const latestPosts = sortPosts(publishedPosts).slice(0, 5);
   return (
     <>
       <section className="space-y-6 pb-8 pt-6 md:pb-12 md:mt-10 lg:pt-32">

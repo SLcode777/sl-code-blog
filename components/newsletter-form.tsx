@@ -2,13 +2,13 @@
 
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
+import { toast, Toaster } from "sonner";
 import { z } from "zod";
 
 import { Button } from "@/components/ui/button";
 import {
   Form,
   FormControl,
-  FormDescription,
   FormField,
   FormItem,
   FormLabel,
@@ -16,9 +16,7 @@ import {
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 
-import React, { useState, useEffect } from "react";
-import { AlertMailSent, AlertMailNotSent } from "./alert";
-import { CSSTransition } from "react-transition-group";
+import { useState } from "react";
 
 //Validation des données entrées via Zod
 const formSchema = z.object({
@@ -63,22 +61,31 @@ export function ProfileForm() {
       });
 
       if (!response.ok) {
+        toast.error(
+          "Une erreur s'est produite. N'hésite pas à me contacter pour que je puisse résoudre le problème !"
+        );
         throw new Error("Network response was not ok");
       }
 
-      setIsMailSent(true); //pour afficher l'AlertMailSent
+      // setIsMailSent(true); //pour afficher l'AlertMailSent
+      toast.success(
+        "L'email a bien été envoyé ! Merci pour ton inscription :)"
+      );
 
-      setTimeout(() => {
-        setIsMailSent(false);
-      }, 2000); //masque l'alerte après 2 secondes Est-ce que c'est pas ça qui empêche mon fade-out ??
+      // setTimeout(() => {
+      //   setIsMailSent(false);
+      // }, 2000); //masque l'alerte après 2 secondes Est-ce que c'est pas ça qui empêche mon fade-out ??
 
       const data = await response.json(); //data n'est pas utilisé ici mais on peut garder la ligne pour un besoin ultérieur (ou debug/test)
     } catch (error) {
       console.error("Erreur lors de la soumission du formulaire:", error);
-      setIsError(true);
-      setTimeout(() => {
-        setIsError(false);
-      }, 2000);
+      // setIsError(true);
+      toast.error(
+        "Une erreur s'est produite. N'hésite pas à me contacter pour que je puisse résoudre le problème !"
+      );
+      // setTimeout(() => {
+      //   setIsError(false);
+      // }, 2000);
       // setIsMailSent(false);
     }
   }
@@ -86,8 +93,11 @@ export function ProfileForm() {
   //3. Define the HTML
   return (
     <div>
+      <Toaster position="bottom-center" richColors />
       <hr className="mt-8"></hr>
-      <h2 className="text-2xl titre pt-4 pb-4">Inscris-toi pour ne pas rater les prochains articles !</h2>
+      <h2 className="text-2xl titre pt-4 pb-4">
+        Inscris-toi pour ne pas rater les prochains articles !
+      </h2>
       <Form {...form}>
         <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
           <FormField
@@ -130,7 +140,7 @@ export function ProfileForm() {
           </Button>
         </form>
       </Form>
-      <CSSTransition
+      {/* <CSSTransition
         in={isMailSent}
         timeout={500}
         classNames={{
@@ -159,7 +169,7 @@ export function ProfileForm() {
         <div className="mb-4">
           <AlertMailNotSent />
         </div>
-      </CSSTransition>
+      </CSSTransition> */}
     </div>
   );
 }
