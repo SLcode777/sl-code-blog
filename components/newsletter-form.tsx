@@ -16,8 +16,6 @@ import {
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 
-import { useState } from "react";
-
 //Validation des données entrées via Zod
 const formSchema = z.object({
   username: z
@@ -40,9 +38,6 @@ export function ProfileForm() {
       usermail: "",
     },
   });
-
-  const [isMailSent, setIsMailSent] = useState(false); //gère l'état du composant pour afficher ou pas AlertMailSent
-  const [isError, setIsError] = useState(false); //idem mais pour AlertMailNotSent
 
   //2. Define the handler
   //AU CLIC SUR LE BOUTON "Envoyer" DE MON INSCRIPTION NEWSLETTER
@@ -67,26 +62,16 @@ export function ProfileForm() {
         throw new Error("Network response was not ok");
       }
 
-      // setIsMailSent(true); //pour afficher l'AlertMailSent
       toast.success(
         "L'email a bien été envoyé ! Merci pour ton inscription :)"
       );
 
-      // setTimeout(() => {
-      //   setIsMailSent(false);
-      // }, 2000); //masque l'alerte après 2 secondes Est-ce que c'est pas ça qui empêche mon fade-out ??
-
       const data = await response.json(); //data n'est pas utilisé ici mais on peut garder la ligne pour un besoin ultérieur (ou debug/test)
     } catch (error) {
       console.error("Erreur lors de la soumission du formulaire:", error);
-      // setIsError(true);
       toast.error(
         "Une erreur s'est produite. N'hésite pas à me contacter pour que je puisse résoudre le problème !"
       );
-      // setTimeout(() => {
-      //   setIsError(false);
-      // }, 2000);
-      // setIsMailSent(false);
     }
   }
 
@@ -135,41 +120,22 @@ export function ProfileForm() {
               </FormItem>
             )}
           />
-          <Button type="submit" className="dark:hover:bg-[#FFFCDB] w-full">
+          <Button
+            type="submit"
+            // for a resaon or another, the duration property of sonner toast doesn't trigger so I setTimeout instead
+            onClick={() => {
+              const toastId = toast.loading("en cours...");
+              toast.loading("en cours...", { id: toastId });
+              setTimeout(() => {
+                toast.dismiss(toastId);
+              }, 2000);
+            }}
+            className="dark:hover:bg-[#FFFCDB] w-full"
+          >
             Envoyer
           </Button>
         </form>
       </Form>
-      {/* <CSSTransition
-        in={isMailSent}
-        timeout={500}
-        classNames={{
-          enter: "opacity-0",
-          enterActive: "opacity-100 transition-opacity duration-500",
-          exit: "opacity-100",
-          exitActive: "opacity-0 transition-opacity duration-500",
-        }}
-        unmountOnExit
-      >
-        <div className="mb-4">
-          <AlertMailSent />
-        </div>
-      </CSSTransition>
-      <CSSTransition
-        in={isError}
-        timeout={500}
-        classNames={{
-          enter: "opacity-0",
-          enterActive: "opacity-100 transition-opacity duration-500",
-          exit: "opacity-100",
-          exitActive: "opacity-0 transition-opacity duration-500",
-        }}
-        unmountOnExit
-      >
-        <div className="mb-4">
-          <AlertMailNotSent />
-        </div>
-      </CSSTransition> */}
     </div>
   );
 }
