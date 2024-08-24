@@ -1,6 +1,7 @@
-import * as runtime from "react/jsx-runtime";
 import Image from "next/image";
+import * as runtime from "react/jsx-runtime";
 import { Callout } from "./callout";
+import { YouTube } from "./ui/youtube-embed";
 
 const useMDXComponent = (code: string) => {
   const fn = new Function(code);
@@ -10,10 +11,12 @@ const useMDXComponent = (code: string) => {
 const components = {
   Image,
   Callout,
+  YouTube,
 };
 
 interface MdxProps {
   code: string;
+  components?: Record<string, React.ComponentType>;
 }
 
 export function MDXContent({ code }: MdxProps) {
