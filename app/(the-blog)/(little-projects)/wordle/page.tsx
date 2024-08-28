@@ -1,14 +1,11 @@
 "use client";
 
-import { cn } from "@/lib/utils";
 import { Button, buttonVariants } from "@/components/ui/button";
-import { useEffect, useState } from "react";
-import React from "react";
-import UseWordle from "../useWordle";
-import { WordleGameover } from "@/components/wordle-gameover";
-import { WordleRules } from "@/components/wordle-rules";
+import { cn } from "@/lib/utils";
+import React, { useEffect, useState } from "react";
 import { Helmet } from "react-helmet";
-
+import UseWordle from "./useWordle";
+import { WordleGameover } from "./wordle-gameover";
 const Alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ⬅☑".split("");
 
 export default function Wordle() {
@@ -103,9 +100,7 @@ export default function Wordle() {
         >
           Règles du jeu
         </Button>
-        <div>
-          <WordleRules showRules={showRules} setShowRules={setShowRules} />
-        </div>
+        <div></div>
         <div>
           <WordleGameover
             showDialog={showDialog}
