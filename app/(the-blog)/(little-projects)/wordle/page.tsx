@@ -2,7 +2,7 @@
 
 import { Button, buttonVariants } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { Helmet } from "react-helmet";
 import UseWordle from "./useWordle";
 import { WordleGameover } from "./wordle-gameover";
@@ -22,8 +22,6 @@ export default function Wordle() {
     isExploding,
     setIsExploding,
   } = UseWordle();
-
-  const [showRules, setShowRules] = useState(false);
 
   useEffect(() => {
     const handleKeyUpTyped = (event: KeyboardEvent) =>
@@ -91,15 +89,7 @@ export default function Wordle() {
         >
           Rejouer
         </Button>
-        <Button
-          className={cn(
-            buttonVariants({ variant: "outline", size: "lg" }),
-            "hidden w-full  font-bold my-4 text-[#FFFCDB]"
-          )}
-          onClick={() => setShowRules(true)}
-        >
-          Règles du jeu
-        </Button>
+
         <div></div>
         <div>
           <WordleGameover

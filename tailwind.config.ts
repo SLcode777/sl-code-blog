@@ -4,8 +4,13 @@ const config = {
   darkMode: ["class"],
   content: [
     "./pages/**/*.{ts,tsx}",
+    "./pages/**/*.{js,jsx}",
     "./components/**/*.{ts,tsx}",
     "./app/**/*.{ts,tsx}",
+    "./app/**/**/*.{ts,tsx}",
+
+    "./app/**/**/*.{js,jsx}",
+
     "./src/**/*.{ts,tsx}",
   ],
   prefix: "",
@@ -19,7 +24,7 @@ const config = {
     },
     extend: {
       colors: {
-        "cream": "#e9d7b7",
+        cream: "#e9d7b7",
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",

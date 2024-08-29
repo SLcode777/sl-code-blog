@@ -22,6 +22,6 @@
       "#site/content": ["./.velite"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "app/(the-blog)/(little-projects)/snake/page.jsx"],
   "exclude": ["node_modules"]
 }
