@@ -25,7 +25,7 @@ export function SiteHeader() {
                   "w-10 px-0 hidden sm:inline-flex"
                 )}
               >
-                <Icons.gitHub className="h-4 w-4" />
+                <Icons.gitHub className="h-6 w-6" />
                 <span className="sr-only">GitHub</span>
               </div>
             </Link>
@@ -40,7 +40,7 @@ export function SiteHeader() {
                   "w-10 px-0  hidden sm:inline-flex"
                 )}
               >
-                <Icons.linkedin className="h-4 w-4" />
+                <Icons.linkedin className="h-6 w-6" />
                 <span className="sr-only">Linkedin</span>
               </div>
             </Link>
@@ -55,7 +55,7 @@ export function SiteHeader() {
                   "w-10 px-0  hidden sm:inline-flex"
                 )}
               >
-                <Icons.twitter className="h-4 w-4" />
+                <Icons.twitter className="h-6 w-6" />
                 <span className="sr-only">X</span>
               </div>
             </Link>

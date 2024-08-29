@@ -1,7 +1,6 @@
 import { Inter } from "next/font/google";
 import { SetTimer } from "./components/set-timer.jsx";
 import TimerComponent from "./components/timer";
-// import "./globals.css";
 
 const inter = Inter({ subsets: ["latin"] });
 
