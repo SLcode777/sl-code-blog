@@ -91,6 +91,8 @@
   cursor: url("/star-yellow.cur"), auto;
 }
 
+/*WORDLE*/
+
 .correct {
   animation: pop 0.5s ease;
   background-color: #65a30d; /* Vert pour les lettres correctement placées */
@@ -148,4 +150,15 @@
   height: 20px;
   background-color: #aaff00;
   border-radius: 50%;
+}
+
+/* TIMERS */
+
+
+@layer base {
+  input[type="number"]::-webkit-inner-spin-button,
+  input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
 }

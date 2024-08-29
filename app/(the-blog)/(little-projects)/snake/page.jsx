@@ -17,20 +17,16 @@ export default function Snake() {
   const INITIAL_HEAD = [{ x: 10, y: 10 }];
 
   const [snake, setSnake] = useState(INITIAL_SNAKE);
-  const [head, setHead] = useState(INITIAL_HEAD);
-
   const [food, setFood] = useState(INITIAL_FOOD);
   const [direction, setDirection] = useState(INITIAL_DIRECTION);
   const [isPlaying, setIsPlaying] = useState(false);
 
   //calculate new head position
   const calculateNewHead = (snake, direction) => {
-    console.log(snake[0].x);
     let newHeadX = snake[0].x + direction.x;
     let newHeadY = snake[0].y + direction.y;
 
     const newHead = { x: newHeadX, y: newHeadY };
-    console.log(newHead);
 
     return newHead;
   };
@@ -53,7 +49,6 @@ export default function Snake() {
         return true;
       }
     }
-
     return false;
   };
 
@@ -79,9 +74,7 @@ export default function Snake() {
       Math.random() * (maxFloored - minCeiled + 1) + minCeiled
     );
 
-    console.log("new food position: ", newFood);
     setFood(newFood);
-    return newFood;
   };
 
   //MAIN FUNCTION HANDLING SNAKE MOVES AND ALL EVENTS (COLLISIONS/FRUITS)
