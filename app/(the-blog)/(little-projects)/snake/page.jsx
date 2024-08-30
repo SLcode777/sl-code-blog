@@ -14,7 +14,6 @@ export default function Snake() {
     { x: 10, y: 10 },
     { x: 9, y: 10 },
   ];
-  const INITIAL_HEAD = [{ x: 10, y: 10 }];
 
   const [snake, setSnake] = useState(INITIAL_SNAKE);
   const [food, setFood] = useState(INITIAL_FOOD);
@@ -55,13 +54,12 @@ export default function Snake() {
   //check collision with a fruit
   const checkFood = (head, food) => {
     if (head.x === food.x && head.y === food.y) {
-      console.log("Snake ate the fruit ! it grows up !");
       return true;
     }
   };
 
-  //generate newFood
-  const generateNewFood = (min, max) => {
+  //calculate new food position
+  const calculateNewFood = (min, max) => {
     const newFood = { x: 0, y: 0 };
 
     const minCeiled = Math.ceil(min);
@@ -74,7 +72,22 @@ export default function Snake() {
       Math.random() * (maxFloored - minCeiled + 1) + minCeiled
     );
 
-    setFood(newFood);
+    return newFood;
+  };
+
+  //check overlaping newFood and set newFood
+  const setNewFood = () => {
+    let newFood = calculateNewFood(0, 19);
+
+    const checkOverlap = snake.some(
+      (cell) => cell.x === newFood.x && cell.y === newFood.y
+    );
+
+    if (!checkOverlap) {
+      setFood(newFood);
+    } else {
+      setNewFood();
+    }
   };
 
   //MAIN FUNCTION HANDLING SNAKE MOVES AND ALL EVENTS (COLLISIONS/FRUITS)
@@ -91,21 +104,17 @@ export default function Snake() {
 
     //add new head to a copy of snake
     const newSnake = [...snake];
-    console.log(newSnake);
     newSnake.unshift(newHead);
-    console.log(newSnake);
 
     //check if snake eats fruit. If yes, update snake without removing tail, else remove tail.
-    if (checkFood(newHead, food)) {
-      generateNewFood(0, 19);
-    } else {
+    if (!checkFood(newHead, food)) {
       newSnake.pop();
-      console.log(newSnake);
+    } else if (checkFood(newHead, food)) {
+      setNewFood();
     }
 
     //update snake
     setSnake([...newSnake]);
-    console.log(snake);
   }, [snake, direction, food]);
 
   //handle snake moving at regular intervals
@@ -121,19 +130,29 @@ export default function Snake() {
 
   //handle key press to change snake direction
   useEffect(() => {
+    let currentDir = direction;
+
     const handleKeyPress = (e) => {
       switch (e.key) {
         case "ArrowUp":
-          setDirection({ x: 0, y: -1 });
+          if (currentDir.x !== 0 && currentDir.y !== 1) {
+            setDirection({ x: 0, y: -1 });
+          }
           break;
         case "ArrowDown":
-          setDirection({ x: 0, y: 1 });
+          if (currentDir.x !== 0 && currentDir.y !== -1) {
+            setDirection({ x: 0, y: 1 });
+          }
           break;
         case "ArrowLeft":
-          setDirection({ x: -1, y: 0 });
+          if (currentDir.x !== 1 && currentDir.y !== 0) {
+            setDirection({ x: -1, y: 0 });
+          }
           break;
         case "ArrowRight":
-          setDirection({ x: 1, y: 0 });
+          if (currentDir.x !== -1 && currentDir.y !== 0) {
+            setDirection({ x: 1, y: 0 });
+          }
           break;
       }
     };
@@ -143,7 +162,7 @@ export default function Snake() {
     return () => {
       document.removeEventListener("keydown", handleKeyPress);
     };
-  }, []);
+  }, [direction]);
 
   return (
     <>

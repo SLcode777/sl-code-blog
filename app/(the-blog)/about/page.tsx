@@ -31,7 +31,7 @@ export default async function AboutPage() {
             Baby dev
           </p>
         </div>
-        <p className="text-muted-foreground text-lg py-4">
+        <div className="text-muted-foreground text-lg py-4">
           Quand j&apos;avais 14 ans, les professeurs m&apos;ont demandé ce que
           j&apos;aimais dans la vie. Quand j&apos;ai répondu que j&apos;aimais
           par dessus tout l&apos;informatique et les ordinateurs, on m&apos;a
@@ -89,7 +89,7 @@ export default async function AboutPage() {
           <br />
           <br /> Bref, un nouveau chapitre qui s&apos;ouvre à moi 🤩 <br />
           <br />A suivre 🚀🌟
-        </p>
+        </div>
       </div>
     </div>
   );
