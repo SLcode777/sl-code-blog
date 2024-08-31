@@ -20,6 +20,8 @@ export default function Snake() {
   const [direction, setDirection] = useState(INITIAL_DIRECTION);
   const [isPlaying, setIsPlaying] = useState(false);
 
+  const [score, setScore] = useState(0);
+
   //calculate new head position
   const calculateNewHead = (snake, direction) => {
     let newHeadX = snake[0].x + direction.x;
@@ -55,6 +57,7 @@ export default function Snake() {
   const checkFood = (head, food) => {
     if (head.x === food.x && head.y === food.y) {
       audioRefBeep.current.play();
+
       return true;
     }
   };
@@ -113,17 +116,21 @@ export default function Snake() {
       newSnake.pop();
     } else if (checkFood(newHead, food)) {
       setNewFood();
+
+      console.log(score);
+      setScore((prevScore) => prevScore + 5);
+      console.log(score);
     }
 
     //update snake
     setSnake([...newSnake]);
-  }, [snake, direction, food]);
+  }, [snake, direction, food, score]);
 
   //handle snake moving at regular intervals
   useEffect(() => {
     if (!isPlaying) return;
 
-    const gameInterval = setInterval(moveSnake, 200);
+    const gameInterval = setInterval(moveSnake, 400);
 
     return () => {
       clearInterval(gameInterval);
@@ -192,6 +199,12 @@ export default function Snake() {
           </div>
         </div>
         <hr className="m-4 md:mb-8" />
+      </div>
+      <div
+        id="game-container"
+        className="flex flex-row justify-center gap-4 pb-4 text-xl font-bold"
+      >
+        Score : {score}
       </div>
       <div className="snake-container">
         <div className="game-board">
