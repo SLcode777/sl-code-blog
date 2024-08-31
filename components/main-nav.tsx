@@ -1,10 +1,11 @@
 "use client";
 
-import Link from "next/link";
-import { Icons } from "./icons";
 import { siteConfig } from "@/config/site";
 import { cn } from "@/lib/utils";
+import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { Icons } from "./icons";
+import { MyProjectMenu } from "./ui/my-projects-menu";
 
 export function MainNav() {
   const pathname = usePathname();
@@ -18,7 +19,7 @@ export function MainNav() {
         href="/blog"
         className={cn(
           "text-sm font-medium transition-colors hover:text-primary hidden sm:inline-block",
-          pathname === "/blog" ? "text-foreground" : "text-foreground/60"
+          pathname === "/blog" ? "text-yellow-500" : "text-foreground"
         )}
       >
         Blog
@@ -27,11 +28,12 @@ export function MainNav() {
         href="/about"
         className={cn(
           "text-sm font-medium transition-colors hover:text-primary  hidden sm:inline-block",
-          pathname === "/about" ? "text-foreground" : "text-foreground/60"
+          pathname === "/about" ? "text-yellow-500" : "text-foreground"
         )}
       >
         A propos
       </Link>
+      <MyProjectMenu />
     </nav>
   );
 }
