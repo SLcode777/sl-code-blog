@@ -21,6 +21,8 @@ export default function Snake() {
   const [isPlaying, setIsPlaying] = useState(false);
 
   const [score, setScore] = useState(0);
+  const [points, setPoints] = useState(10);
+  const [speed, setSpeed] = useState(400);
 
   //calculate new head position
   const calculateNewHead = (snake, direction) => {
@@ -116,26 +118,25 @@ export default function Snake() {
       newSnake.pop();
     } else if (checkFood(newHead, food)) {
       setNewFood();
-
-      console.log(score);
-      setScore((prevScore) => prevScore + 5);
-      console.log(score);
+      setScore((prevScore) => prevScore + points);
     }
 
     //update snake
     setSnake([...newSnake]);
-  }, [snake, direction, food, score]);
+  }, [snake, direction, food, score, points]);
 
   //handle snake moving at regular intervals
   useEffect(() => {
     if (!isPlaying) return;
 
-    const gameInterval = setInterval(moveSnake, 400);
+    const gameInterval = setInterval(moveSnake, speed);
+
+    console.log(speed);
 
     return () => {
       clearInterval(gameInterval);
     };
-  }, [moveSnake, isPlaying]);
+  }, [moveSnake, isPlaying, speed]);
 
   //handle key press to change snake direction
   useEffect(() => {
@@ -173,6 +174,20 @@ export default function Snake() {
     };
   }, [direction]);
 
+  //handle speed increase
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      if (isPlaying) {
+        if (speed > 50) {
+          setSpeed((prevSpeed) => prevSpeed - 50);
+          setPoints((prevPoints) => prevPoints + 10);
+        }
+      }
+    }, 10000);
+    return () => clearInterval(interval);
+  }, [speed, isPlaying]);
+
   //sound effects
   const audioRefBeep = useRef(null);
   const audioRefGameover = useRef(null);
@@ -201,10 +216,14 @@ export default function Snake() {
         <hr className="m-4 md:mb-8" />
       </div>
       <div
-        id="game-container"
+        id="stats-container"
         className="flex flex-row justify-center gap-4 pb-4 text-xl font-bold"
       >
-        Score : {score}
+        <div className="w-[400px] flex flex-row justify-between">
+          <div>Speed:{speed}</div>
+          {/* <Timer /> */}
+          <div>Score : {score}</div>
+        </div>
       </div>
       <div className="snake-container">
         <div className="game-board">
