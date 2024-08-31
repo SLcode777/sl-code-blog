@@ -144,6 +144,15 @@
   border-color: black;
 }
 
+.snake-head {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  background-color: #efc50b;
+  border-width: 1px;
+  border-color: black;
+}
+
 .food {
   position: absolute;
   width: 20px;

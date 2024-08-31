@@ -131,8 +131,6 @@ export default function Snake() {
 
     const gameInterval = setInterval(moveSnake, speed);
 
-    console.log(speed);
-
     return () => {
       clearInterval(gameInterval);
     };
@@ -175,7 +173,6 @@ export default function Snake() {
   }, [direction]);
 
   //handle speed increase
-
   useEffect(() => {
     const interval = setInterval(() => {
       if (isPlaying) {
@@ -227,10 +224,19 @@ export default function Snake() {
       </div>
       <div className="snake-container">
         <div className="game-board">
+          <div
+            className="snake-head z-10"
+            style={{
+              left: `${snake[0].x * CELL_SIZE}px`,
+              top: `${snake[0].y * CELL_SIZE}px`,
+            }}
+          >
+            {snake.filter((index) => (snake[index] = 0))}{" "}
+          </div>
           {snake.map((segment, index) => (
             <div
               key={index}
-              className="snake-segment border"
+              className="snake-segment"
               style={{
                 left: `${segment.x * CELL_SIZE}px`,
                 top: `${segment.y * CELL_SIZE}px`,
