@@ -1,4 +1,5 @@
 import { Inter } from "next/font/google";
+import React from "react";
 import { SetTimer } from "./components/set-timer.jsx";
 import TimerComponent from "./components/timer";
 

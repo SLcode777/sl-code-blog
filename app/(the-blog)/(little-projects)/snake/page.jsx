@@ -1,6 +1,6 @@
 "use client";
 
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import { Helmet } from "react-helmet";
 
 export default function Snake() {
@@ -54,6 +54,7 @@ export default function Snake() {
   //check collision with a fruit
   const checkFood = (head, food) => {
     if (head.x === food.x && head.y === food.y) {
+      audioRefBeep.current.play();
       return true;
     }
   };
@@ -98,6 +99,7 @@ export default function Snake() {
     //check collision with wall or self
     if (checkCollision(newHead, snake)) {
       setIsPlaying(false);
+      audioRefGameover.current.play();
       console.log("GAME OVER !");
       return;
     }
@@ -164,6 +166,10 @@ export default function Snake() {
     };
   }, [direction]);
 
+  //sound effects
+  const audioRefBeep = useRef(null);
+  const audioRefGameover = useRef(null);
+
   return (
     <>
       <div className="container max-w-4xl py-6 lg:py-10">
@@ -171,6 +177,13 @@ export default function Snake() {
           <meta property="og:image" content="./og-wordle.png" />
           <title>Snake</title>
         </Helmet>
+        <audio ref={audioRefBeep} src="/beep.mp3" preload="auto"></audio>
+        <audio
+          ref={audioRefGameover}
+          src="/nokia-3310-ringtone.mp3"
+          preload="auto"
+        ></audio>
+
         <div className="flex flex-col text-center gap-4 md:flex-row md:justify-between md:gap-8">
           <div className="flex-1 space-y-4">
             <h1 className="inline-block titre text-4xl lg:text-5xl">
