@@ -1,0 +1,20 @@
+{
+  "scores": [
+    {
+      "Player": "Stella",
+      "Score": 10000
+    },
+    {
+      "Player": "Marlène",
+      "Score": 8000
+    },
+    {
+      "Player": "Melvyn",
+      "Score": 9000
+    },
+    {
+      "Player": "hola",
+      "Score": 0
+    }
+  ]
+}

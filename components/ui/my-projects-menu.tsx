@@ -21,7 +21,7 @@ export const MyProjectMenu = () => {
             <NavigationMenuContent className="flex flex-row ">
               <div className="flex flex-col p-4 w-64  text-lg italic font-serif leading-8 border-l-4 border-[#efc50b] text-balance text-center bg-stone-100 dark:bg-stone-900" >
                 {" "}
-                petits projets réalisés lors de challenges ou au cours de mes
+                Petits projets réalisés lors de challenges ou au cours de mes
                 formations
               </div>
               <div className="flex flex-col">
