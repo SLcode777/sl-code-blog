@@ -19,7 +19,7 @@ export function MainNav() {
         href="/blog"
         className={cn(
           "text-sm font-medium transition-colors hover:text-primary hidden sm:inline-block",
-          pathname === "/blog" ? "text-yellow-500" : "text-foreground"
+          pathname === "/blog" ? "text-[#efc50b]" : "text-foreground"
         )}
       >
         Blog
@@ -28,7 +28,7 @@ export function MainNav() {
         href="/about"
         className={cn(
           "text-sm font-medium transition-colors hover:text-primary  hidden sm:inline-block",
-          pathname === "/about" ? "text-yellow-500" : "text-foreground"
+          pathname === "/about" ? "text-[#efc50b]" : "text-foreground"
         )}
       >
         A propos
