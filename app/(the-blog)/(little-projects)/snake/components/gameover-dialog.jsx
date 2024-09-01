@@ -52,7 +52,7 @@ export const GameoverDialog = ({ isLost, score }) => {
 
     addScoreToDatabase(data);
 
-    // window.location.reload();
+    window.location.reload();
   }
 
   return (
