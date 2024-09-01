@@ -2,6 +2,7 @@
 
 import { useCallback, useEffect, useRef, useState } from "react";
 import { Helmet } from "react-helmet";
+import { GameoverDialog } from "./components/gameover-dialog.jsx";
 
 export default function Snake() {
   const GRID_SIZE = 20;
@@ -19,6 +20,7 @@ export default function Snake() {
   const [food, setFood] = useState(INITIAL_FOOD);
   const [direction, setDirection] = useState(INITIAL_DIRECTION);
   const [isPlaying, setIsPlaying] = useState(false);
+  const [isLost, setIsLost] = useState(false);
 
   const [score, setScore] = useState(0);
   const [points, setPoints] = useState(10);
@@ -104,6 +106,7 @@ export default function Snake() {
     //check collision with wall or self
     if (checkCollision(newHead, snake)) {
       setIsPlaying(false);
+      setIsLost(true);
       audioRefGameover.current.play();
       console.log("GAME OVER !");
       return;
@@ -279,6 +282,7 @@ export default function Snake() {
           )}
         </div>
       </div>
+      <GameoverDialog isLost={isLost} score={score} />
     </>
   );
 }
