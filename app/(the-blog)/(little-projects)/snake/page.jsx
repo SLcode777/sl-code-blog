@@ -3,6 +3,7 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 import { Helmet } from "react-helmet";
 import { GameoverDialog } from "./components/gameover-dialog.jsx";
+import { ScoreBoard } from "./components/score-board.jsx";
 
 export default function Snake() {
   const GRID_SIZE = 20;
@@ -24,7 +25,7 @@ export default function Snake() {
 
   const [score, setScore] = useState(0);
   const [points, setPoints] = useState(10);
-  const [speed, setSpeed] = useState(50);
+  const [speed, setSpeed] = useState(400);
 
   //calculate new head position
   const calculateNewHead = (snake, direction) => {
@@ -283,8 +284,8 @@ export default function Snake() {
         </div>
       </div>
       <GameoverDialog isLost={isLost} score={score} />
-      <div className="flex flex-col items-center border">
-        {/* <ScoreBoard /> */}
+      <div className="flex flex-col items-center ">
+        <ScoreBoard />
       </div>
     </>
   );

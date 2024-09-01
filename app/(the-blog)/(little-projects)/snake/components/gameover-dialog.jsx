@@ -21,25 +21,36 @@ export const GameoverDialog = ({ isLost, score }) => {
     }
   }, [isLost]);
 
-  const sendScoresToJson = (data) => {
-    fetch("/api/snake-scores", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(data),
-    })
-      .then((response) => response.json())
-      .then((data) => console.log(data))
-      .catch((error) => console.error("Erreur", error));
+  const addScoreToDatabase = async (donnees) => {
+    try {
+      const response = await fetch("api/snake-add-score", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(donnees),
+      });
+
+      const data = await response.json();
+      console.log("score ajouté:", data);
+    } catch (error) {
+      console.error("Erreur:", error);
+    }
   };
 
   function handleClick() {
-    const data = { player: inputRef.current.value, score: score };
+    const playerName = () => {
+      if (inputRef.current.value === "") {
+        return "ANONYME";
+      } else {
+        return inputRef.current.value.toUpperCase();
+      }
+    };
+    const data = { player: playerName(), score: score };
 
     console.log(data);
 
-    sendScoresToJson(data);
+    addScoreToDatabase(data);
 
     // window.location.reload();
   }
