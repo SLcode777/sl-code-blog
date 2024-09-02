@@ -52,6 +52,7 @@
     "@types/react-helmet": "^6.1.11",
     "@types/react-transition-group": "^4.4.10",
     "autoprefixer": "^10.4.19",
+    "daisyui": "^4.12.10",
     "eslint": "^8.57.0",
     "eslint-config-next": "14.1.4",
     "postcss": "^8.4.39",

@@ -28,7 +28,7 @@ export default function Snake() {
 
   const [score, setScore] = useState(0);
   const [points, setPoints] = useState(10);
-  const [speed, setSpeed] = useState(400);
+  const [speed, setSpeed] = useState(300);
 
   //calculate new head position
   const calculateNewHead = (snake, direction) => {
@@ -191,14 +191,23 @@ export default function Snake() {
   useEffect(() => {
     const interval = setInterval(() => {
       if (isPlaying) {
-        if (speed > 50) {
-          setSpeed((prevSpeed) => prevSpeed - 50);
+        if (speed > 75) {
+          setSpeed((prevSpeed) => prevSpeed - 25);
           setPoints((prevPoints) => prevPoints + 10);
         }
       }
-    }, 10000);
+    }, 30000);
     return () => clearInterval(interval);
   }, [speed, isPlaying]);
+
+  //prevent window scroll
+  useEffect(() => {
+    if (isPlaying) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "auto";
+    }
+  }, [isPlaying]);
 
   //sound effects
   const audioRefBeep = useRef(null);
@@ -218,7 +227,7 @@ export default function Snake() {
           preload="auto"
         ></audio>
 
-        <div className="flex flex-col text-center gap-4 md:flex-row md:justify-between md:gap-8">
+        <div className="flex flex-col text-center gap-4 md:flex-row md:justify-between md:gap-8 h-[100%]">
           <div className="flex-1 space-y-4">
             <h1 className="inline-block titre text-4xl lg:text-5xl">
               THE SNAKE GAME
@@ -285,12 +294,6 @@ export default function Snake() {
             >
               Start Game
             </button>
-          )}
-
-          {isPlaying ? (
-            <p>Le jeu est en cours !</p>
-          ) : (
-            <p>Le jeu est en pause</p>
           )}
         </div>
       </div>
