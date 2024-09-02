@@ -8,6 +8,7 @@ import {
   AlertDialogTitle,
   AlertDialogTrigger,
 } from "@/components/ui/alert-dialog";
+
 import { useEffect, useRef } from "react";
 
 export const GameoverDialog = ({ isLost, score }) => {
@@ -71,18 +72,29 @@ export const GameoverDialog = ({ isLost, score }) => {
                   ref={inputRef}
                   className="mt-4 px-2 w-full"
                   placeholder="Ton meilleur pseudo"
+                  maxLength={20}
                 ></input>
               </AlertDialogDescription>
             </AlertDialogHeader>
             <AlertDialogFooter>
-              <AlertDialogAction
-                className="w-full"
-                onClick={() => {
-                  handleClick();
-                }}
-              >
-                Envoyer
-              </AlertDialogAction>
+              <div className="flex flex-col w-full gap-4">
+                <AlertDialogAction
+                  className="w-full"
+                  onClick={() => {
+                    handleClick();
+                  }}
+                >
+                  Envoyer
+                </AlertDialogAction>
+                <AlertDialogAction
+                  className="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 border border-input bg-background hover:bg-accent text-accent-foreground"
+                  onClick={() => {
+                    window.location.reload();
+                  }}
+                >
+                  Non, je veux juste refaire une partie
+                </AlertDialogAction>
+              </div>
             </AlertDialogFooter>
           </AlertDialogContent>
         </AlertDialog>
