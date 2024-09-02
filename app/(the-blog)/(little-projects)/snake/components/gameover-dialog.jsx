@@ -11,6 +11,7 @@ import {
 
 import { useEffect, useRef } from "react";
 
+//here I simulate a click on an invisible button to show the GameoverDialog because I couldn't find a way to simply display it automatically when isLost is set to (true)...
 export const GameoverDialog = ({ isLost, score }) => {
   const triggerRef = useRef(null);
 
@@ -66,8 +67,7 @@ export const GameoverDialog = ({ isLost, score }) => {
               <AlertDialogTitle>💥 GAME OVER 💥</AlertDialogTitle>
               <AlertDialogDescription className="text-md leading-10 ">
                 Ton score est : <b>{score}</b> <br /> Entre ton pseudo pour
-                t&apos;inscrire sur le tableau des scores ! <br /> (le tableau
-                des scores arrive bientôt)
+                t&apos;inscrire sur le tableau des scores ! 
                 <input
                   ref={inputRef}
                   className="mt-4 px-2 w-full"

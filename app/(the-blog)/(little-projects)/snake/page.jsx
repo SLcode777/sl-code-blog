@@ -20,6 +20,9 @@ export default function Snake() {
   const [snake, setSnake] = useState(INITIAL_SNAKE);
   const [food, setFood] = useState(INITIAL_FOOD);
   const [direction, setDirection] = useState(INITIAL_DIRECTION);
+  const [nextDir, setNextDir] = useState(INITIAL_DIRECTION);
+  const [hasMoved, setHasMoved] = useState(false);
+
   const [isPlaying, setIsPlaying] = useState(false);
   const [isLost, setIsLost] = useState(false);
 
@@ -101,8 +104,10 @@ export default function Snake() {
 
   //MAIN FUNCTION HANDLING SNAKE MOVES AND ALL EVENTS (COLLISIONS/FRUITS)
   const moveSnake = useCallback(() => {
+    setDirection(nextDir);
+
     //calculate new head position
-    const newHead = calculateNewHead(snake, direction);
+    const newHead = calculateNewHead(snake, nextDir);
 
     //check collision with wall or self
     if (checkCollision(newHead, snake)) {
@@ -127,7 +132,8 @@ export default function Snake() {
 
     //update snake
     setSnake([...newSnake]);
-  }, [snake, direction, food, score, points]);
+    setHasMoved(true);
+  }, [snake, nextDir, food, score, points]);
 
   //handle snake moving at regular intervals
   useEffect(() => {
@@ -142,31 +148,36 @@ export default function Snake() {
 
   //handle key press to change snake direction
   useEffect(() => {
+    if (!hasMoved) return;
+
     let currentDir = direction;
+    let newDir = direction;
 
     const handleKeyPress = (e) => {
       switch (e.key) {
         case "ArrowUp":
           if (currentDir.x !== 0 && currentDir.y !== 1) {
-            setDirection({ x: 0, y: -1 });
+            newDir = { x: 0, y: -1 };
           }
           break;
         case "ArrowDown":
           if (currentDir.x !== 0 && currentDir.y !== -1) {
-            setDirection({ x: 0, y: 1 });
+            newDir = { x: 0, y: 1 };
           }
           break;
         case "ArrowLeft":
           if (currentDir.x !== 1 && currentDir.y !== 0) {
-            setDirection({ x: -1, y: 0 });
+            newDir = { x: -1, y: 0 };
           }
           break;
         case "ArrowRight":
           if (currentDir.x !== -1 && currentDir.y !== 0) {
-            setDirection({ x: 1, y: 0 });
+            newDir = { x: 1, y: 0 };
           }
           break;
       }
+      setNextDir(newDir);
+      setHasMoved(false);
     };
 
     document.addEventListener("keydown", handleKeyPress);
@@ -174,7 +185,7 @@ export default function Snake() {
     return () => {
       document.removeEventListener("keydown", handleKeyPress);
     };
-  }, [direction]);
+  }, [direction, hasMoved]);
 
   //handle speed increase
   useEffect(() => {
