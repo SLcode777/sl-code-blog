@@ -4,6 +4,7 @@ import { useCallback, useEffect, useRef, useState } from "react";
 import { Helmet } from "react-helmet";
 import { GameoverDialog } from "./components/gameover-dialog.jsx";
 import { ScoreBoard } from "./components/score-board.jsx";
+import { Timer } from "./components/timer.jsx";
 
 export default function Snake() {
   const GRID_SIZE = 20;
@@ -241,8 +242,7 @@ export default function Snake() {
         className="flex flex-row justify-center gap-4 pb-4 text-xl font-bold"
       >
         <div className="w-[400px] flex flex-row justify-between">
-          <div>Speed:{speed}</div>
-          {/* <Timer /> */}
+          <Timer isPlaying={isPlaying} />
           <div>Score : {score}</div>
         </div>
       </div>
