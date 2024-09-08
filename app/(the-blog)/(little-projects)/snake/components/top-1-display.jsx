@@ -30,6 +30,8 @@ export const Top1Display = () => {
           <a
             className="text-[#ccbc9e] max-w-72"
             href="https://x.com/StellaSLcode"
+            target="_blank"
+            rel="noreferrer noopener"
           >
             @StellaSLcode
           </a>
@@ -39,6 +41,8 @@ export const Top1Display = () => {
           <a
             className="text-[#ccbc9e] max-w-72 "
             href="https://www.linkedin.com/in/stella-de-sl-code-419929293/"
+            target="_blank"
+            rel="noreferrer noopener"
           >
             Stella de SL Code
           </a>
@@ -48,6 +52,8 @@ export const Top1Display = () => {
           <a
             className="text-[#ccbc9e] max-w-72 "
             href="https://github.com/SLcode777/"
+            target="_blank"
+            rel="noreferrer noopener"
           >
             SLcode777
           </a>
@@ -57,13 +63,20 @@ export const Top1Display = () => {
           <a
             className="text-[#ccbc9e] max-w-72 "
             href="https://www.sl-code.dev/"
+            target="_blank"
+            rel="noreferrer noopener"
           >
             Mon Blog
           </a>
         </div>
         <div className="flex flex-col gap-1 ">
           <div className="italic text-sm ">Lien 2</div>
-          <a className="text-[#ccbc9e] max-w-72 " href="">
+          <a
+            className="text-[#ccbc9e] max-w-72 "
+            href=""
+            target="_blank"
+            rel="noreferrer noopener"
+          >
             -
           </a>
         </div>

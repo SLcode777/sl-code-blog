@@ -26,7 +26,7 @@ export const ScoreBoard = () => {
         <div className="flex flex-row w-full items-center justify-center content-center ">
           <span className="loading loading-spinner text-warning "></span>
         </div>
-      ) : (
+      ) : scores.length > 0 ? (
         <div id="scores" className="flex flex-row justify-between  text-xl">
           <ul className="w-full">
             {scores.map((score) => (
@@ -45,6 +45,8 @@ export const ScoreBoard = () => {
             ))}
           </ul>
         </div>
+      ) : (
+        <p className="text-center">Erreur lors de la récupération des scores</p>
       )}
     </div>
   );

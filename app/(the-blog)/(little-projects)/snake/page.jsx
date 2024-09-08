@@ -3,6 +3,7 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 import { Helmet } from "react-helmet";
 import { GameoverDialog } from "./components/gameover-dialog.jsx";
+import { NewTopOneDialog } from "./components/newtop-dialog.jsx";
 import { ScoreBoard } from "./components/score-board.jsx";
 import { Timer } from "./components/timer.jsx";
 import { Top1Display } from "./components/top-1-display.jsx";
@@ -27,10 +28,13 @@ export default function Snake() {
 
   const [isPlaying, setIsPlaying] = useState(false);
   const [isLost, setIsLost] = useState(false);
+  const [isNewTopOne, setIsNewTopOne] = useState(false);
+  const [currentPlayer, setCurrentPlayer] = useState("");
 
   const [score, setScore] = useState(0);
   const [points, setPoints] = useState(10);
   const [speed, setSpeed] = useState(300);
+  const [currentTopScore, setCurrentTopScore] = useState(0);
 
   //calculate new head position
   const calculateNewHead = (snake, direction) => {
@@ -135,7 +139,7 @@ export default function Snake() {
     //update snake
     setSnake([...newSnake]);
     setHasMoved(true);
-  }, [snake, nextDir, food, score, points]);
+  }, [snake, nextDir, food, score, points]); //do not add setNewFood as a dependency
 
   //handle snake moving at regular intervals
   useEffect(() => {
@@ -214,6 +218,38 @@ export default function Snake() {
   //sound effects
   const audioRefBeep = useRef(null);
   const audioRefGameover = useRef(null);
+
+  //fetch current top score
+  useEffect(() => {
+    const fetchTopOneScore = async () => {
+      try {
+        const response = await fetch("api/snake-get-top1");
+
+        const data = await response.json();
+
+        const { score } = data[0];
+        setCurrentTopScore(score);
+      } catch (error) {
+        console.error("Erreur:", error);
+      }
+    };
+
+    fetchTopOneScore();
+  }, [currentTopScore]);
+
+  //compare new score to current top score
+  const checkIfNewTopScore = (playerScore) => {
+    if (playerScore > currentTopScore) {
+      setIsNewTopOne(true);
+    } else {
+      setIsNewTopOne(false);
+    }
+  };
+
+  //stocker le nom du joueur
+  const handlePlayerName = (name) => {
+    setCurrentPlayer(name);
+  };
 
   return (
     <>
@@ -302,7 +338,22 @@ export default function Snake() {
               )}
             </div>
           </div>
-          <GameoverDialog isLost={isLost} score={score} />
+          <div className="mt-24">{`isNewTopOne : ${isNewTopOne} `}</div>
+          <div>{`playerScore : ${score} `}</div>
+          <div>{`currentTopScore : ${currentTopScore} `}</div>
+          <div>{`currentPlayer : ${currentPlayer} `}</div>
+
+          <GameoverDialog
+            isLost={isLost}
+            score={score}
+            checkIfNewTopScore={checkIfNewTopScore}
+            onPlayerNameSubmit={handlePlayerName}
+          />
+          <NewTopOneDialog
+            isNewTopOne={isNewTopOne}
+            currentPlayer={currentPlayer}
+          />
+
           <div className="flex flex-col items-center ">
             <ScoreBoard />
           </div>

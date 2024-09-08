@@ -9,14 +9,18 @@ import {
   AlertDialogTrigger,
 } from "@/components/ui/alert-dialog";
 
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 
-//here I simulate a click on an invisible button to show the GameoverDialog because I couldn't find a way to simply display it automatically when isLost is set to (true)...
-export const GameoverDialog = ({ isLost, score }) => {
+export const GameoverDialog = ({ isLost, score, checkIfNewTopScore, onPlayerNameSubmit }) => {
   const triggerRef = useRef(null);
-
+  
   const inputRef = useRef(null);
-
+  
+  const [currentTopScore, setCurrentTopScore] = useState(0);
+  const [isNewTopOne, setIsNewTopOne] = useState(false);
+  const [currentPlayer, setCurrentPlayer] = useState("");
+  
+  //here I simulate a click on an invisible button to show the GameoverDialog because I couldn't find a way to simply display it automatically when isLost is set to (true)...
   useEffect(() => {
     if (isLost && triggerRef.current) {
       triggerRef.current.click();
@@ -41,21 +45,22 @@ export const GameoverDialog = ({ isLost, score }) => {
   };
 
   function handleClick() {
-    const playerName = () => {
-      if (inputRef.current.value === "") {
-        return "ANONYME";
-      } else {
-        return inputRef.current.value.toUpperCase();
-      }
-    };
-    const data = { player: playerName(), score: score };
+    const playerName = () =>
+      inputRef.current.value === "" ? "ANONYME" : inputRef.current.value;
 
-    console.log(data);
+    onPlayerNameSubmit(playerName)
+
+    const data = { player: playerName(), score: score };
 
     addScoreToDatabase(data);
 
-    window.location.reload();
+    checkIfNewTopScore(score);
+
+    if (score <= currentTopScore) {
+      window.location.reload();
+    }
   }
+
 
   return (
     <>
@@ -67,7 +72,7 @@ export const GameoverDialog = ({ isLost, score }) => {
               <AlertDialogTitle>💥 GAME OVER 💥</AlertDialogTitle>
               <AlertDialogDescription className="text-md leading-10 ">
                 Ton score est : <b>{score}</b> <br /> Entre ton pseudo pour
-                t&apos;inscrire sur le tableau des scores ! 
+                t&apos;inscrire sur le tableau des scores !
                 <input
                   ref={inputRef}
                   className="mt-4 px-2 w-full"
@@ -103,6 +108,3 @@ export const GameoverDialog = ({ isLost, score }) => {
   );
 };
 
-export const entry = () => {
-  handleClick();
-};

@@ -16,6 +16,7 @@ export default async function handler(req, res) {
       res
         .status(500)
         .json({ error: "Erreur lors de la récupérationd des scores" });
+      console.log(error);
     }
   } else {
     res.status(405).json({ message: "Méthode non autorisée" });
