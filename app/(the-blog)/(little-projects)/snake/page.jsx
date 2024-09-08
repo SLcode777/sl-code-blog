@@ -5,6 +5,7 @@ import { Helmet } from "react-helmet";
 import { GameoverDialog } from "./components/gameover-dialog.jsx";
 import { ScoreBoard } from "./components/score-board.jsx";
 import { Timer } from "./components/timer.jsx";
+import { Top1Display } from "./components/top-1-display.jsx";
 
 export default function Snake() {
   const GRID_SIZE = 20;
@@ -237,69 +238,76 @@ export default function Snake() {
         </div>
         <hr className="m-4 md:mb-8" />
       </div>
-      <div
-        id="stats-container"
-        className="flex flex-row justify-center gap-4 pb-4 text-xl font-bold"
-      >
-        <div className="w-[400px] flex flex-row justify-between">
-          <Timer isPlaying={isPlaying} />
-          <div>Score : {score}</div>
-        </div>
-      </div>
-      <div className="snake-container">
-        <div className="game-board">
+      <div id="global-container" className="flex flex-col lg:flex-row">
+        <div id="left-container" className="w-full"></div>
+        <div id="center-container" className="flex flex-col">
           <div
-            className="snake-head z-10"
-            style={{
-              left: `${snake[0].x * CELL_SIZE}px`,
-              top: `${snake[0].y * CELL_SIZE}px`,
-            }}
+            id="stats-container"
+            className="flex flex-row justify-center gap-4 pb-4 text-xl font-bold w-[400px] self-center "
           >
-            {snake.filter((index) => (snake[index] = 0))}{" "}
+            <div className="w-[400px] flex flex-row justify-between ">
+              <Timer isPlaying={isPlaying} />
+              <div>Score : {score}</div>
+            </div>
           </div>
-          {snake.map((segment, index) => (
-            <div
-              key={index}
-              className="snake-segment"
-              style={{
-                left: `${segment.x * CELL_SIZE}px`,
-                top: `${segment.y * CELL_SIZE}px`,
-              }}
-            />
-          ))}
-          <div
-            className="food"
-            style={{
-              left: `${food.x * CELL_SIZE}px`,
-              top: `${food.y * CELL_SIZE}px`,
-            }}
-          ></div>
+
+          <div className="snake-container ">
+            <div className="game-board">
+              <div
+                className="snake-head z-10"
+                style={{
+                  left: `${snake[0].x * CELL_SIZE}px`,
+                  top: `${snake[0].y * CELL_SIZE}px`,
+                }}
+              >
+                {snake.filter((index) => (snake[index] = 0))}{" "}
+              </div>
+              {snake.map((segment, index) => (
+                <div
+                  key={index}
+                  className="snake-segment"
+                  style={{
+                    left: `${segment.x * CELL_SIZE}px`,
+                    top: `${segment.y * CELL_SIZE}px`,
+                  }}
+                />
+              ))}
+              <div
+                className="food"
+                style={{
+                  left: `${food.x * CELL_SIZE}px`,
+                  top: `${food.y * CELL_SIZE}px`,
+                }}
+              ></div>
+            </div>
+          </div>
+          <div className="flex flex-row justify-center gap-4 pt-4 ">
+            <div className="w-[400px] flex flex-row justify-between">
+              {isPlaying ? (
+                <button
+                  className="rounded bg-orange-300 px-2  text-black"
+                  onClick={() => setIsPlaying(false)}
+                >
+                  Pause Game
+                </button>
+              ) : (
+                <button
+                  className=" rounded bg-lime-400 px-2 text-black font-medium"
+                  onClick={() => {
+                    setIsPlaying(true);
+                  }}
+                >
+                  Start Game
+                </button>
+              )}
+            </div>
+          </div>
+          <GameoverDialog isLost={isLost} score={score} />
+          <div className="flex flex-col items-center ">
+            <ScoreBoard />
+          </div>
         </div>
-      </div>
-      <div className="flex flex-row justify-center gap-4 pt-4 ">
-        <div className="w-[400px] flex flex-row justify-between">
-          {isPlaying ? (
-            <button
-              className="rounded bg-orange-300 px-2  text-black"
-              onClick={() => setIsPlaying(false)}
-            >
-              Pause Game
-            </button>
-          ) : (
-            <button
-              className=" rounded bg-lime-400 px-2 text-black font-medium"
-              onClick={() => {
-                setIsPlaying(true);
-              }}
-            >
-              Start Game
-            </button>
-          )}
-        </div>
-      </div>
-      <GameoverDialog isLost={isLost} score={score} />
-      <div className="flex flex-col items-center ">
-        <ScoreBoard />
+        <Top1Display />
       </div>
     </>
   );
