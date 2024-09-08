@@ -338,10 +338,7 @@ export default function Snake() {
               )}
             </div>
           </div>
-          <div className="mt-24">{`isNewTopOne : ${isNewTopOne} `}</div>
-          <div>{`playerScore : ${score} `}</div>
-          <div>{`currentTopScore : ${currentTopScore} `}</div>
-          <div>{`currentPlayer : ${currentPlayer} `}</div>
+          
 
           <GameoverDialog
             isLost={isLost}
