@@ -5,7 +5,7 @@ export const Top1Display = () => {
     <>
       <div
         id="right-container"
-        className="w-full flex flex-col mt-6 lg:mt-0 lg:ml-12 py-10 pl-4 gap-4 lg:border-l border-yellow-400/40 items-center lg:items-start text-center lg:text-start"
+        className="w-full flex flex-col mt-6 lg:mt-0 lg:ml-12 py-10 pl-4 gap-4  border-yellow-400/40 items-center lg:items-start text-center lg:text-start"
       >
         <h2 className="titre text-2xl mb-2">QUI EST TOP 1 ?</h2>
         <Image

@@ -85,6 +85,7 @@
 .titre {
   font-family: "Norwester", sans-serif;
   font-weight: normal;
+  /* text-align: left; */
 }
 
 .star-cursor {

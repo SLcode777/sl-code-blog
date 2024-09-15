@@ -3,7 +3,7 @@ import { error } from "console";
 import type { NextApiRequest, NextApiResponse } from "next";
 import { Resend } from "resend";
 
-//submitHandler permet de récupérer les données reçues par l'API de resend et déclenche l'envoi du mail et enfin créé le contact dans l'Audience Resend
+//submitHandler permet de récupérer les données reçues par l'API de resend et déclenche l'envoi du mail 
 
 const resend = new Resend(process.env.RESEND_MAIL_API_KEY); //initialisation de Resend avec la clé API
 
