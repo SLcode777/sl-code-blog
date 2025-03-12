@@ -6,17 +6,16 @@ import { Tag } from "@/components/tag";
 import { siteConfig } from "@/config/site";
 import { formatDate } from "@/lib/utils";
 import "@/styles/mdx.css";
-import { Metadata } from "next";
+import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 
 interface PostPageProps {
-  params: {
-    slug: string[];
-  };
+  params: Promise<{ slug: string[] }>;
 }
 
 async function getPostFromParams(params: PostPageProps["params"]) {
-  const slug = params?.slug?.join("/");
+  const resolvedParams = await params;
+  const slug = await resolvedParams.slug?.join("/");
   const post = posts.find((post) => post.slugAsParams === slug);
   return post;
 }
@@ -63,7 +62,9 @@ export async function generateMetadata({
 export async function generateStaticParams(): Promise<
   PostPageProps["params"][]
 > {
-  return posts.map((post) => ({ slug: post.slugAsParams.split("/") }));
+  return posts.map((post) =>
+    Promise.resolve({ slug: post.slugAsParams.split("/") })
+  );
 }
 
 export default async function PostPage({ params }: PostPageProps) {
