@@ -31,7 +31,7 @@ export function MainNav() {
           pathname === "/about" ? "text-[#efc50b]" : "text-foreground"
         )}
       >
-        A propos
+        About
       </Link>
       <MyProjectMenu />
     </nav>

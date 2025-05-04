@@ -2,16 +2,11 @@ import { Button } from "@/components/ui/button"
 import { CardContent, CardFooter, CardHeader } from "@/components/ui/card"
 import { Card, CardDescription, CardTitle } from "@/components/ui/card-hover-effect"
 import Image from 'next/image'
-import { Child, Mood, MOODS } from "../tables"
+import { Child, getAgeFromBirthdate, Mood, MOODS } from "../utils"
 
 
 
 export const MoodCard = ({child, onMoodSelect, onResetHistory}: {child: Child; onMoodSelect: (mood: Mood) => void; onResetHistory: () => void}) => {
-
-
- 
-
-  
 
 
   return (
@@ -21,7 +16,11 @@ export const MoodCard = ({child, onMoodSelect, onResetHistory}: {child: Child; o
       <CardHeader >
       <Image className="rounded-full self-center" src={child.avatar} alt={child.name} width={128} height={128} />
         <CardTitle className="text-background">{child.name}</CardTitle>
-        <CardDescription className="text-background">{child.age} ans</CardDescription>
+        <CardDescription>
+          
+  {child.birthdate ? `${getAgeFromBirthdate(child.birthdate)} ans` : "Âge inconnu"}
+</CardDescription>
+
       </CardHeader>
       <CardContent className="flex flex-1 flex-col items-center gap-2 h-full">
         <div>Mon humeur du moment !</div>

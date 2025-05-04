@@ -16,7 +16,7 @@ export const MyProjectMenu = () => {
         <NavigationMenuList>
           <NavigationMenuItem>
             <NavigationMenuTrigger className=" ">
-              Mes petits projets fun
+              Mes petits projets
             </NavigationMenuTrigger>
             <NavigationMenuContent className="flex flex-row ">
               <div className="flex flex-col p-4 w-64  text-lg italic font-serif leading-8 border-l-4 border-[#efc50b] text-balance text-center bg-stone-100 dark:bg-stone-900" >
