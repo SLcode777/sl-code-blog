@@ -15,15 +15,15 @@ export const MoodCard = ({child, onMoodSelect, onResetHistory}: {child: Child; o
 
 
   return (
-    <Card className=" bg-foreground text-background flex flex-col ">
+    <Card className="bg-foreground text-background flex flex-col">
 
       
-      <CardHeader className="">
+      <CardHeader >
       <Image className="rounded-full self-center" src={child.avatar} alt={child.name} width={128} height={128} />
         <CardTitle className="text-background">{child.name}</CardTitle>
         <CardDescription className="text-background">{child.age} ans</CardDescription>
       </CardHeader>
-      <CardContent className=" flex flex-1 flex-col items-center gap-2 h-full">
+      <CardContent className="flex flex-1 flex-col items-center gap-2 h-full">
         <div>Mon humeur du moment !</div>
         
       {child.mood ? 
@@ -40,7 +40,7 @@ export const MoodCard = ({child, onMoodSelect, onResetHistory}: {child: Child; o
     
     
     
-    : <p>"no mood found"</p>}
+    : <p>no mood found</p>}
     <div className="text-xl font-bold">{child.mood.mood}</div>
 
     <div className="flex flex-col gap-2 mt-8">
