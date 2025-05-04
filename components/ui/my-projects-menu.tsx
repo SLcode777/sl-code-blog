@@ -40,6 +40,11 @@ export const MyProjectMenu = () => {
                     My Amazing Timers
                   </NavigationMenuLink>
                 </Link>
+                <Link href="/little-moods">
+                  <NavigationMenuLink className={navigationMenuTriggerStyle()}>
+                    Little Moods
+                  </NavigationMenuLink>
+                </Link>
               </div>
             </NavigationMenuContent>
           </NavigationMenuItem>
