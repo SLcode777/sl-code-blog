@@ -1,7 +1,0 @@
-onlyBuiltDependencies:
-  - '@prisma/client'
-  - '@prisma/engines'
-  - '@vercel/speed-insights'
-  - esbuild
-  - prisma
-  - sharp
