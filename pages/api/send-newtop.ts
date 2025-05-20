@@ -3,7 +3,7 @@ import { error } from "console";
 import type { NextApiRequest, NextApiResponse } from "next";
 import { Resend } from "resend";
 
-//submitHandler permet de récupérer les données reçues par l'API de resend et déclenche l'envoi du mail 
+//submitHandler permet de récupérer les données reçues par l'API de resend et déclenche l'envoi du mail
 
 const resend = new Resend(process.env.RESEND_MAIL_API_KEY); //initialisation de Resend avec la clé API
 
@@ -20,9 +20,8 @@ const submitHandler = async (req: NextApiRequest, res: NextApiResponse) => {
     githubAccount,
     siteOne,
     siteTwo,
+    score,
   } = req.body; //ici, on utilise la Destructuration qui va récupèrer les champs de mon formulaire, ou plus précisément du corps de la requête HTTP
-
-
 
   try {
     const { data, error } = await resend.emails.send({
@@ -30,13 +29,21 @@ const submitHandler = async (req: NextApiRequest, res: NextApiResponse) => {
       to: ["sl.code.777@gmail.com"],
       subject: "Un nouveau joueur a battu le record du Snake Game!",
       text: "ceci est un champ obligatoire", //le corps du message en texte brut
-      react: EmailTemplateTopScore({ playerName, punchline, xAccount, linkedinAccount, githubAccount, siteOne, siteTwo }), //composant react pour le contenu du mail personnalisé 
+      react: EmailTemplateTopScore({
+        playerName,
+        punchline,
+        xAccount,
+        linkedinAccount,
+        githubAccount,
+        siteOne,
+        siteTwo,
+        score,
+      }), //composant react pour le contenu du mail personnalisé
     });
 
     if (error) {
       return res.status(400).json(error);
     }
-
 
     res.status(200).json(data);
   } catch {

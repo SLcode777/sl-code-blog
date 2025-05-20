@@ -44,6 +44,7 @@ export const NewTopOneDialog = ({ isNewTopOne, currentPlayer }) => {
           githubAccount,
           siteOne,
           siteTwo,
+          score,
         }),
       });
 

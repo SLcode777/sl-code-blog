@@ -8,6 +8,7 @@ interface EmailTemplateTopScoreProps {
   githubAccount: string;
   siteOne: string;
   siteTwo: string;
+  score: number;
 }
 
 export const EmailTemplateTopScore: React.FC<
@@ -20,6 +21,7 @@ export const EmailTemplateTopScore: React.FC<
   githubAccount,
   siteOne,
   siteTwo,
+  score,
 }) => (
   <div
     style={{
@@ -47,6 +49,7 @@ export const EmailTemplateTopScore: React.FC<
       githubAccount : {githubAccount} <br />
       site 1 : {siteOne} <br />
       site 2 : {siteTwo}
+      score : {score}
     </p>
     <hr />
     <a
