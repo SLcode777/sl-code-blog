@@ -1,8 +1,5 @@
-import { cn } from "@/lib/utils";
 import { Metadata } from "next";
-import Link from "next/link";
 import { AffiCard, CodelineCard } from "./affi-card";
-import Image from "next/image";
 
 export const metadata: Metadata = {
   title: "Affiliation Codeline",
@@ -83,11 +80,18 @@ const AffiLinks = [
     tag: "formation",
   },
   {
-    title: "NextTailwind",
+    title: "NextTailwind 222",
     link: "https://dub.sh/tailwindlp-slcode",
     description:
       "La formation complète pour maîtriser Tailwind et le design web",
     image: "/img/affi-nextailwind.webp",
+    tag: "formation",
+  },
+  {
+    title: "NextFullStack",
+    link: "https://dub.sh/nfslp-slcode",
+    description: "La formation complète pour devenir developpeur Fullstack",
+    image: "/img/affi-nfs.png",
     tag: "formation",
   },
 ];
