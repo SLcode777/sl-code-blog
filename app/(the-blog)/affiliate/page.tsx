@@ -80,7 +80,7 @@ const AffiLinks = [
     tag: "formation",
   },
   {
-    title: "NextTailwind 222",
+    title: "NextTailwind",
     link: "https://dub.sh/tailwindlp-slcode",
     description:
       "La formation complète pour maîtriser Tailwind et le design web",
