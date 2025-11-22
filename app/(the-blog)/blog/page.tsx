@@ -41,7 +41,7 @@ export default async function BlogPage({ searchParams }: BlogPageProps) {
           <div className="flex-1 space-y-4">
             <h1 className="inline-block titre text-4xl lg:text-5xl">Blog</h1>
             <p className="text-xl text-muted-foreground">
-              Mon parcours de reconversion en developpement Web.
+              Mon parcours de reconversion en developpement Web et mobile.
             </p>
           </div>
         </div>

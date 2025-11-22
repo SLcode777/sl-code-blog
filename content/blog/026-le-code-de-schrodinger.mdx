@@ -1,0 +1,147 @@
+---
+title: Le code de Schrodinger
+description: Wow, 3 mois depuis mon dernier article ?! j'abuse :o Mais j'ai une bonne excuse, j'ai bossé comme une dingue ! 🤩
+date: 2025-11-23
+published: true
+tags: [Compte-rendu]
+image: /img/postimg026.webp
+---
+
+Depuis que j'ai commencé à coder ce projet "titanesque" (pour moi il l'est), je suis dans un état d'esprit superposé, carrément quantique. 🐈
+Tantôt je me sens invincible, aucun challenge ne me résiste, je peux tout réussir. Tantôt, je réalise la fraude intersidérale que je suis, je me heurte à des murs infranchissables, et je flippe de ne jamais pouvoir les franchir.
+
+Il y a deux semaines, j'étais plutôt dans l'état "fraude". J'ai énormément avancé sur le MVP, quasi terminé même, mais il y a un gros problème sur cette version (on en reparle juste après), et malgré les différentes solutions que j'ai testées, rien ne fonctionne comme je veux.
+
+Pour ceux qui débarquent, je suis Stella, la comptable qui veut devenir développeuse. A 40 ans, TDAH et maman de 2 jeunes enfants, le parcours n'est pas simple mais j'ai l'avantage d'être passionnée et déterminée.
+
+Alors voilà, je suis assez hypée et en même temps totalement effrayée de te présenter mon oeuvre, mon premier vrai projet, mon application mobile de suivi alimentaire. Tu connais peut-être déjà MyFitnessPal, Yazio, ou encore FatSecret, Le Secret du Poids, et j'en passe. Des applis concurrentes, y'en a des tonnes, mais aucune ne fait ce dont j'ai besoin :
+
+## 1. permettre le suivi de plusieurs personnes
+
+Et j'avoue que j'ai du mal à comprendre que ça n'existe pas... je suis la seule qui ait besoin de suivre mes nutriments et en même temps ceux de mon foyer ? Les couples qui utilisent MyFitnessPal, ils remplissent leurs aliments en double, chacun dans son téléphone ? En plus, moi j'ai besoin de suivre mes calories (le déficit calorique c'est le seul régime qui fonctionne pour moi parce que j'aime trop manger lol), et pour mes enfants et mon homme, j'ai besoin de suivre uniquement les glucides (pour leur diabète). Avec mon app, je peux voir uniquement les informations dont j'ai besoin pour chacun d'eux ^^
+
+Pour ça, il suffit d'aller dans les paramètres de la Famille et de sélectionner pour chaque membre de la famille les nutriments qu'on veut suivre et de renseigner les quotas si nécessaire !
+
+Par exemple, pour moi je vais suivre uniquement les calories et mettre un quota à 1600. Et pour mes enfants, je vais suivre uniquement les glucides pour pouvoir calculer leur insuline, mais pas besoin de quotas !
+
+<div className="flex flex-col md:flex-row w-full justify-between">
+  <Image src="../img/026_sc1.jpg" width={300} height={300} alt="screenshot" />
+  <Image src="../img/026_sc2.png" width={300} height={300} alt="screenshot" />
+</div>
+
+## 2. être fluide et fonctionnelle pour la VRAIE VIE !
+
+Quand je sers les repas, ou quand je cuisine, je dois peser chaque élément et renseigner qui mange quoi. Le faire à la main, ou dans une app classique, c'est très fastidieux, et c'est la principale raison qui me pousse à arrêter de compter mes calories. Obligée de compter les glucides pour mes petits par contre, ça c'est pas optionnel 😅
+
+Avec mon app, j'ai juste à déclencher le micro et dire ce que je sers à la volée, par exemple : "100g de riz pour Ellie et 150g pour Liam, et une compote de pomme chacun". Et BIM ! 2 plateaux remplis avec les totaux de glucides pour chacun. A terme, on pourra même déclencher le vocal via "Hey Google, Allymeal !".
+
+Bon j’ai un peu l’impression que ça prend une plombe pour traiter la commande vocale, mais à la limite, c'est pas vraiment gênant ici, puisqu'une fois les assiettes servies, ça me laisse le temps de mettre les petits à table, etc... J'améliorerais l'UX un peu plus tard, pour afficher la transcription du vocal "en live", un petit son pour indiquer la fin du traitement et la création des plateaux etc...
+
+### Probleme
+
+Par contre, j'en viens au problème principal que j'évoquais plus tôt, j'ai des lenteurs un peu partout dans l'app, et je ne sais pas comment identifier les points "fautifs" et comment les résoudre. Pour que tu comprennes un peu mieux, je dois t'expliquer comment fonctionne l'app globalement, la saisie vocale en particulier, quels choix j'ai dû faire et pourquoi ces choix.
+
+**La barre de recherche**, que tu retrouveras sur toutes les pages principales de l'application, permet de trouver des aliments depuis plusieurs endroits :
+
+- La base de données d'OpenFoodFacts (typiquement, les aliments avec un code barre )
+- La base de données de Ciqual Anses (les aliments bruts style carottes, pomme verte, etc... ou les aliments "moyens" style sauce bolognaise, crème anglaise, par exemple)
+- La base de données de l'utilisateur, qu'il alimente au fur et à mesure en récupérant les aliments qu'il a recherché, ou scanné, ou bien en créant manuellement ses propres aliments "from scratch" si besoin.
+
+<Image src="../img/026_sc5.jpg" width={300} height={300} alt="screenshot" />
+
+**La feature vocale** par contre, va chercher les aliments **UNIQUEMENT** dans
+la base de l'utilisateur. Ce qui signifie qu'il va devoir peupler sa base
+personnelle pour que le vocal puisse piocher dedans.
+
+### POURQUOI j'ai choisi cette méthode ?
+
+Parce que sinon, en vocal, si je dis "150g de riz", la recherche va retourner 50 variétés de riz différentes (typiquement la totalité des références de riz en vente dans les grandes surfaces françaises lol) donc je devrais ensuite sélectionner pour chaque entrée vocale l'aliment que je voulais réellement. Et l'aspect pratique et instantané du vocal disparaît…
+
+PAR CONTRE, pour éviter que l'utilisateur doive passer par la phase très fastidieuse de rentrer d'abord tous ses aliments (et fatalement perdre l'intérêt pour mon app), je propose 2 solutions.
+
+**La première**, simple et _terriblement efficace_, c'est de "scrapper" simplement ses listes de courses à partir de son drive habituel grâce à ma petite extension chrome. Pour l'instant, on peut importer uniquement ses listes pré-enregistrées (et uniquement sur Auchan car j'ai pas encore fait les autres enseignes mais ça va venir 😅) mais à terme, on pourra aussi importer à partir du panier, et à partir d'une page individuelle d'un article.
+
+**La deuxième**, pour les ~~fous~~ courageux qui font encore leurs courses à l'ancienne 🛒, j'ajouterai une feature pour pouvoir scanner ses articles en batch. T'ouvres ton placard/ton frigo, tu scannes tous tes codes barres, et t'as déjà une grosse partie du "travail" qui est faite.
+
+Voilà, tout ça c'était la partie qui me rend la plus fière ! 💪 J'ai mis beaucoup de réflexion et de temps pour créer tout ce "flow" et encore, je rentre pas dans les détails de
+
+- comment son stockés les aliments,
+- les aliments des plateaux,
+- qu'est-ce qui se passe quand on créé à partir d'OpenFoodFacts ou pas,
+- quand on modifie une valeur nutritionnelle,
+
+Il y a tellement de subtilités à penser et à prendre en compte, c'est assez colossal à mettre en place (en tout cas pour moi ça l'est ^^).
+
+### Et maintenant, passons à la partie qui fache... 😭
+
+TOUT est **LEEEEENT** !!
+
+- Créer un plateau,
+- sélectionner un plateau,
+- ajouter un aliment sur un plateau,
+- afficher la liste des aliments,
+- passer d'un onglet à un autre,
+
+absolument TOUT prend des plombes... à un point où je me suis même demandé si c'était possible que ça vienne de la brouette qui me sert de téléphone ? c'est possible ? (j'ai l'impression que c'est mieux sur ma tablette...) ou bien le fait que je sois sur un environnement de test ? (mon backend est live par contre). Est-ce que c'est prisma qui bride de fou pour que je paye le accelerate ? Est-ce que c'est moi qui ait fait n'importe quoi avec React et qui n'a pas optimisé les renders ? J'ai l'impression que parfois mes composants re-render 1 million de fois pour rien, ça me stresse !! (clairement je pense qu’un dev bien calé s’arracherait les cheveux en voyant mon code 😅)
+
+J'ai passé des jours et des jours à essayer de réparer tout ça, une chose après l'autre. Pour la partie création de plateaux et ajout d'aliments aux plates, j'ai tenté plusieurs solutions.
+
+J'ai voulu implémenter l'optimistic update natif de Tanstack Query, mais apparemment c'était pas très compatible avec tRPC ? J'ai eu beau lire la doc et retourner le code dans tous les sens, j'ai pas réussi à appliquer la doc à mon cas, donc pour certaines opérations (modification des quantités et suppression d'un item sur un plateau), j'ai pu faire un optimistic "à la mano". Mais pour l'ajout d'un item sur un plateau, ça ne fonctionnait pas correctement, l'item apparaissait, puis disparaissait, puis réapparaissait... j'y ai passé plusieurs sessions de code sans succès.
+
+J'ai ensuite tenté d'utiliser Zustand en combinaison avec un store local. Ca avait pour avantage de :
+
+- rendre les opérations d'ajout plus rapides pour l'utilisateur
+- éviter de faire des requêtes serveur à tout bout de champs
+- avoir quand même une sauvegarde dans un store zustand pour éviter de perdre les données si l'app est fermée ou si elle crashe
+
+Mais au final j'ai tout supprimé car :
+
+- le résultat n'était pas spécialement plus rapide (voire c'était pire ?)
+- ça engendrait de nouveaux bugs et problèmes
+- le code devenait dégueulasse !
+
+Ma codebase est déjà plutôt conséquente, avec tous ces ajouts, j'avais l'impression de perdre pied et de faire n'importe quoi.
+
+Du coup, j'ai décidé de garder mon code tel qu'il est pour l'instant et tenter de l'optimiser si possible en analysant mieux ce qui se passe sous le capot. Mais je ne sais pas vraiment par où commencer pour identifier les fautifs dans toutes ces lenteurs.
+
+Quand je suis face à un mur comme ça, je me sens un peu paralysée et je fini par procrastiner, me trouver des excuses pour ne pas coder (j'ai mal dormi, j'ai mal à la tête, j'ai mal au petit doigt... ).
+
+Mais après quelques jours à tourner autour du pot, j'ai réussi à mettre ça de côté, en me disant que quelques lenteurs étaient "acceptables" sur mon MVP. J'imagine que c'est optimisable mais je me demande si je suis pas un peu trop exigeante quand je vois que même les plus grosses applis ont leurs propres lenteurs...
+
+Donc j'ai remis ça à plus tard et alors je suis rentrée dans une phase d'euphorie du code (la "bipolaire du code" 😅) !
+
+J'ai noté ce qu'il me restait à faire pour sortir ce MVP et j'ai plus réfléchi. Et alors dans ce genre de phase, je peux bosser de 6h du mat à 22h du soir sans problème. Je m'interromps bien sûr pour mes obligations familiales et dès que j'ai du temps de cerveau je retourne bosser, j'adore ces phases ! A côté de ça, je peux par exemple passer tout un samedi aprem à jouer à Zelda avec ma fille sans culpabiliser parce que dans tous les cas j'avance ! 🎮
+
+Et alors là du coup, j'ai terminé tout ce qui était vraiment non négociable pour ce MVP, j'ai même codé un espace pour récolter des feedbacks des utilisateurs et qu'ils puissent voter pour les features qu'ils veulent voir arriver et en proposer de nouvelles. Et bien sûr, avec le tableau de bord administrateur qui va bien pour gérer les nombreux retours de tous mes utilisateurs (comment ça je rêve ?! laisse moi tranquille !! 😂).
+
+<div className="flex flex-col md:flex-row w-full justify-between">
+  <Image src="../img/026_sc3.jpg" width={300} height={300} alt="screenshot" />
+  <Image src="../img/026_sc4.jpg" width={300} height={300} alt="screenshot" />
+</div>
+
+Enfin, j'ai créé mon compte développeur sur la plateforme d'Android et il m'a fallu une bonne journée pour toute leur paperasse administrative (pages légales obligatoires (mentions légales, CGU, RGPD, etc) 🥱😒) et faire les assets graphiques. Je savais pas qu'on devait aussi être designer pour publier une app sur les stores !
+
+Les consignes pour les assets :
+
+- doit faire au moins 1920x1080 (16:9),
+- résolution 1080p,
+- ne doit pas dépasser 1Mb,
+- sur les screeshots, la batterie et l'etat du réseau et du wifi doivent être au maximum,
+- la hauteur ne doit pas dépasser le double de la largeur (au carré de l’hypothénuse)
+- wooooow !! 🤯
+
+Bon du coup, j'ai pas voulu perdre trop de temps sur du design (où je suis clairement pas douée), j'ai fait 6 screenshots que j'ai inséré dans des mockups sur Figma et hop, pour l'instant ça ira je pense xD
+
+<Image src="../img/mockups.png" width={600} height={300} alt="screenshot" />
+
+Et là, il me reste encore quelques bricoles à régler en plus du build de l'application, mais j'ai encore un peu de temps devant moi puisqu'Android ne veut pas valider mon identité !! Ben oui, ils veulent comparer mes documents d'identité avec mes justificatifs de domicile sauf que je suis mariée !! donc ça correspond plus ... 🙃🙃🙃
+
+Donc pour très bientôt, je vais lancer la **phase de test** fermé obligatoire avant de pouvoir publier sur le PlayStore, donc si tu as un Android et que tu as envie de m’aider, j’ai besoin de 12 testeurs minimum sur une période de 14 jours pour valider cette phase ! Si tu veux t’inscrire, mets juste ton adresse mail (gmail) sur ma landing page ! (oui je sais elle est moche mais je me suis vraiment pas attardée dessus pour l’instant ^^)
+
+[https://allymeal.app](https://allymeal.app/)
+
+Enfin voilà, l’article me paraît déjà pas mal long. A la base, j’avais pensé faire une vidéo, mais j’ai jamais vraiment de moment avec du silence autour de moi, donc j’ai abandonné l’idée…
+
+N’hésites pas à me capter sur X ou par mail (liens en bas de page) si tu as envie de me faire un retour ou un petit coucou 😊
+
+A très vite et en attendant, prends soin de toi !! 💫
