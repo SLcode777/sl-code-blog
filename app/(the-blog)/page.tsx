@@ -13,15 +13,27 @@ export default function Home() {
   const latestPosts = sortPosts(publishedPosts).slice(0, 5);
   return (
     <>
-      <section className="space-y-6 pb-8 pt-6 md:pb-12 md:mt-10 lg:pt-32">
+      <section className="space-y-6 pb-8 pt-6 md:pb-12 md:mt-10 lg:pt-24">
         <div className="container flex flex-col gap-4 text-center">
-          <h1 className="titre pb-8 text-3xl sm:text-5xl md:text-6xl lg:text-7xl text-balance">
-            La comptable qui voulait devenir developpeuse
+          <h1 className="titre text-3xl sm:text-5xl md:text-6xl lg:text-7xl text-balance">
+            La comptable devenue
           </h1>
-          <p className="max-w-[42rem] mx-auto text-muted-foreground text-balance sm:text-xl">
-            Sois le témoin de l&apos;odyssée palpitante d&apos;une comptable qui
-            se lance le défi de devenir développeuse.
-          </p>
+          <h1 className="titre text-[#efc50b] pb-8 text-3xl sm:text-5xl md:text-6xl lg:text-7xl text-balance">
+            developpeuse
+          </h1>
+          {/* <p className="max-w-[42rem] mx-auto text-muted-foreground text-balance sm:text-xl">
+            Suis les aventures d'une ancienne comptable reconvertie dans le développement.
+          </p> */}
+          <section className="flex justify-center container max-w-4xl">
+            <div className="flex fit-content px-12 border-b">
+              <PostImage
+                imageUrl={"/img/stellaNB-lucy.png"}
+                altText={`Image d'illustration`}
+                width={480}
+                height={480}
+              />
+            </div>
+          </section>
 
           <div className="pt-8 flex flex-col gap-4 justify-center sm:flex-row">
             <Link
@@ -49,7 +61,7 @@ export default function Home() {
           </div>
         </div>
       </section>
-      <section className="flex justify-center container max-w-4xl">
+      {/* <section className="flex justify-center container max-w-4xl">
         <div className="flex fit-content px-12 border-b">
           <PostImage
             imageUrl={"/img/stellaNB-lucy.png"}
@@ -58,7 +70,7 @@ export default function Home() {
             height={480}
           />
         </div>
-      </section>
+      </section> */}
       <section className="container max-w-4xl py-6 lg:py-10 flex flex-col space-y-6 mt-30">
         <h2 className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl titre text-center ">
           Derniers posts
