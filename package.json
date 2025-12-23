@@ -12,6 +12,7 @@
   "dependencies": {
     "@heroicons/react": "^2.1.5",
     "@hookform/resolvers": "^3.9.0",
+    "@prisma/adapter-pg": "^7.2.0",
     "@prisma/client": "7.0.0",
     "@radix-ui/react-alert-dialog": "^1.1.1",
     "@radix-ui/react-avatar": "^1.1.0",
@@ -29,6 +30,7 @@
     "lucide-react": "^0.364.0",
     "next": "15.3.6",
     "next-themes": "^0.3.0",
+    "pg": "^8.16.3",
     "punycode": "^2.3.1",
     "react": "^19.1.0",
     "react-confetti-explosion": "^2.1.2",
