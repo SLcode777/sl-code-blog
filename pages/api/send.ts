@@ -1,12 +1,11 @@
-import type { NextApiRequest, NextApiResponse } from "next";
 import { EmailTemplate } from "@/components/email-template";
+import type { NextApiRequest, NextApiResponse } from "next";
 import { Resend } from "resend";
-import { error } from "console";
 import { addContactToAudience } from "./contacts-resend";
 
 //submitHandler permet de récupérer les données reçues par l'API de resend et déclenche l'envoi du mail et enfin créé le contact dans l'Audience Resend
 
-const resend = new Resend(process.env.RESEND_MAIL_API_KEY); //initialisation de Resend avec la clé API
+const resend = new Resend(process.env.RESEND_API_KEY_BLOG); //initialisation de Resend avec la clé API
 
 const submitHandler = async (req: NextApiRequest, res: NextApiResponse) => {
   if (req.method !== "POST") {
@@ -41,7 +40,7 @@ const submitHandler = async (req: NextApiRequest, res: NextApiResponse) => {
     });
 
     res.status(200).json(data);
-  } catch {
+  } catch (error) {
     console.error("Erreur lors de l'envoi de l'email", error);
     return res.status(500).json({ message: "Erreur interne du serveur" });
   }

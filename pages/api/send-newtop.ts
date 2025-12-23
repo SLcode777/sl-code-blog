@@ -5,7 +5,7 @@ import { Resend } from "resend";
 
 //submitHandler permet de récupérer les données reçues par l'API de resend et déclenche l'envoi du mail
 
-const resend = new Resend(process.env.RESEND_MAIL_API_KEY); //initialisation de Resend avec la clé API
+const resend = new Resend(process.env.RESEND_API_KEY_BLOG); //initialisation de Resend avec la clé API
 
 const submitHandler = async (req: NextApiRequest, res: NextApiResponse) => {
   if (req.method !== "POST") {

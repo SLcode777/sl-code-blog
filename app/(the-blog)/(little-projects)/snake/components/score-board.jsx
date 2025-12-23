@@ -7,12 +7,18 @@ export const ScoreBoard = () => {
   useEffect(() => {
     const fetchScores = async () => {
       try {
-        const response = await fetch("api/snake-get-scores");
+        const response = await fetch("/api/snake-get-scores");
+
+        if (!response.ok) {
+          throw new Error(`Erreur HTTP: ${response.status}`);
+        }
+
         const data = await response.json();
         setScores(data);
         setIsLoading(false);
       } catch (error) {
-        console.error("Erreur:", error);
+        console.error("Erreur lors de la récupération des scores:", error);
+        setIsLoading(false);
       }
     };
 

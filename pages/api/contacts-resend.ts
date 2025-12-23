@@ -1,7 +1,7 @@
 import { Resend } from "resend";
 
 //initialisation de Resend avec la clé API
-const resend = new Resend(process.env.RESEND_MAIL_API_KEY);
+const resend = new Resend(process.env.RESEND_API_KEY_BLOG);
 
 //définition des types TypeScript de l'objet contactInfo
 interface contactInfo {
