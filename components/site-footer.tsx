@@ -1,6 +1,5 @@
 import { siteConfig } from "@/config/site";
 import { Mail } from "lucide-react";
-import Image from "next/image";
 import { Icons } from "./icons";
 
 export function SiteFooter() {
@@ -48,7 +47,7 @@ export function SiteFooter() {
       </div>
       <div className="flex flex-col items-center w-full mb-6 text-sm gap-4">
         <div>Made with ❤️</div>
-        <div className="text-xs flex flex-row gap-2">
+        {/* <div className="text-xs flex flex-row gap-2">
           Featured on{" "}
           <Image
             className="rounded-lg"
@@ -60,7 +59,7 @@ export function SiteFooter() {
           <a className="underline" href="https://baguette.directoryfa.st/products/stella">
             IndieBaguette
           </a>
-        </div>
+        </div> */}
       </div>
     </footer>
   );
