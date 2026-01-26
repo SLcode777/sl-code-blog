@@ -1,4 +1,5 @@
 import { posts } from "#site/content";
+import { PromoBanner } from "@/components/banner";
 import { ProfileForm } from "@/components/newsletter-form";
 import PostImage from "@/components/post-image";
 import { PostItem } from "@/components/post-item";
@@ -14,6 +15,8 @@ export default function Home() {
   return (
     <>
       <section className="space-y-6 pb-8 pt-6 md:pb-12 md:mt-10 lg:pt-24">
+        <PromoBanner />
+
         <div className="container flex flex-col gap-4 text-center">
           <h1 className="titre text-3xl sm:text-5xl md:text-6xl lg:text-7xl text-balance">
             La comptable devenue
@@ -40,7 +43,7 @@ export default function Home() {
               href="/blog"
               className={cn(
                 buttonVariants({ size: "lg" }),
-                "w-full sm:w-fit font-bold dark:hover:bg-[#FFFCDB]"
+                "w-full sm:w-fit font-bold dark:hover:bg-[#FFFCDB]",
               )}
             >
               Voir mon blog
@@ -51,7 +54,7 @@ export default function Home() {
               rel="noreferrer noopener"
               className={cn(
                 buttonVariants({ variant: "outline", size: "lg" }),
-                "w-full sm:w-fit"
+                "w-full sm:w-fit",
               )}
             >
               {" "}

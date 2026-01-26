@@ -11,7 +11,7 @@ import Link from "next/link";
 
 export const MyProjectMenu = () => {
   return (
-    <div>
+    <div className="hidden md:block">
       <NavigationMenu>
         <NavigationMenuList>
           <NavigationMenuItem>
@@ -19,7 +19,7 @@ export const MyProjectMenu = () => {
               Mes petits projets
             </NavigationMenuTrigger>
             <NavigationMenuContent className="flex flex-row ">
-              <div className="flex flex-col p-4 w-64  text-lg italic font-serif leading-8 border-l-4 border-[#efc50b] text-balance text-center bg-stone-100 dark:bg-stone-900" >
+              <div className="flex flex-col p-4 w-64  text-lg italic font-serif leading-8 border-l-4 border-[#efc50b] text-balance text-center bg-stone-100 dark:bg-stone-900">
                 {" "}
                 Petits projets réalisés lors de challenges ou au cours de mes
                 formations

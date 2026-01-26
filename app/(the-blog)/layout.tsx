@@ -8,7 +8,6 @@ import type { Metadata } from "next";
 import type { Viewport } from "next/dist/types";
 import { Inter } from "next/font/google";
 import "./globals.css";
-import { PromoBanner } from "@/components/banner";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-sans" });
 
@@ -41,7 +40,6 @@ export default function RootLayout({
         <Providers>
           <div className="relative flex min-h-dvh flex-col bg-background">
             <SiteHeader />
-            <PromoBanner />
             <main className="flex-1">{children}</main>
             <SiteFooter />
           </div>
